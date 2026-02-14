@@ -1,0 +1,154 @@
+===================================IT SECURITY RESEARCHER MASTER CLASS===================================================
+
+PART 1. Advanced Web Exploitation Techniques
+1.1. Insecure Deserialization
+1.2. SSRF (Server-Side Request Forgery)
+1.3. XXE (XML External Entity) Injection
+1.4. SSTI (Server-Side Template Injection)
+1.5. MSSQL Injection
+1.6. Advanced MySQL Injection
+
+PART 2. Advanced Hacking Techniques
+2.1. Advanced Kali Linux Toolset Usage
+2.2. Container Escape to Root
+2.3. Container Escape to Full Kubernetes Takeover
+2.4. Covert Channels
+2.5. Daemon Backdooring
+
+PART 3. Advanced Network Attacks
+3.1. OSI 7-Layer Model
+3.2. MITM & DNS Cache Poisoning on Subnets
+3.3. DNS Amplification Attack
+3.4. SNMP Attack
+3.5. BGP (Border Gateway Protocol) Attack
+3.6. MPLS Attack
+3.7. VLAN Hopping for Lateral Movement
+
+PART 4. Userspace Exploitation Techniques in 64-bit Linux
+4.1. Overview of 64-bit Linux Userspace Exploitation Vulnerabilities 
+4.2. Fundamentals of Exploitation Tooling for Userspace (DONE) 
+4.3. Basic x64 Stack Overflow Exploitation (DONE)
+4.4. Memory Corruption Exploitation Bypass Techniques in 64-bit Linux
+    - ASLR Bypass Techniques
+        1. Per-page Brute Force (DONE)         
+        2. Information Leak via Format Strings (DONE)         
+        3. ASLR Bypass via ret2plt (DONE)     
+     - PIE (Position Independent Executable) Bypass Techniques
+        1. PIE Bypass via Information Leak (Format String) (DONE)         
+        2. PIE Bypass via Byte-by-Byte Brute Force
+     - DEP/NX Bypass Techniques
+        1. NX Bypass via ROP (Return-Oriented Programming)
+        2. NX Bypass via JOP (Jump-Oriented Programming)
+        3. NX Bypass via SROP (Sigreturn-Oriented Programming)
+     - Stack Canaries Bypass Techniques
+        1. Canary Bypass via Information Leak (Format String)
+        2. Canary Bypass via Byte-by-Byte Brute Force
+     - RELRO Bypass Techniques
+        1. Full RELRO Bypass via Function Pointer Hooking in Memory
+        2. Partial RELRO Bypass via GOT Overwrite
+    - Fortify Source Bypass Techniques
+        1. Fortify Source Bypass via Integer Overflow/Underflow
+        2. Fortify Source Bypass via Uncovered Functions
+4.5. Off-by-One Exploitation
+4.6. Integer Overflow Exploitation
+4.7. Signedness Bug Exploitation
+    - Signed to Unsigned Integer Exploitation
+4.8. Format String Exploitation
+    1. Fundamentals of Format String Exploitation
+    2. GOT Overwrite
+    3. Libc Overwrite
+    4. fini_array Pointer Overwrite
+4.9. Race Conditions
+4.10. Introduction to 64-bit Linux Heap
+4.11. Heap Overflow Exploitation
+    1. House of Apple 2 Technique
+    2. Modern House of Water Technique
+    3. House of Tangerine Technique
+    4. Tcache Poisoning Technique
+    5. Tcache Stashing Technique
+4.12. Use-After-Free (UAF) Exploitation
+    1. Tcache Stashing Unlink Attack
+    2. House of Apple (Family)
+    3. House of Emma
+4.13. Double Free Exploitation
+    1. Tcache Per-Thread Cache Protection
+    2. Safe Linking Bypass
+    3. House of Botcake (Tcache + Unsorted Bin)
+4.14. Advanced Userspace Exploitation
+4.15. Real-Life Userspace Exploitation Examples
+
+PART 5. Rootkit Development for 64-bit Linux Kernel 6.x & Freebsd
+5.1. Overview of 64-bit Linux Kernel 6.x Rootkits
+5.2. Linux Userland Rootkit Development
+5.3. Fundamentals of Linux LKM (Loadable Kernel Module) Rootkits
+5.4. Linux LKM Rootkit Development based on Ftrace
+5.5. Freebsd KLD Rootkit Development
+
+PART 6. Kernelspace Exploitation Techniques in 64-bit Linux
+6.1. Overview of 64-bit Linux Kernelspace Exploitation
+6.2. Debugging Techniques for Linux Kernel Exploitation
+6.3. Basic Linux Kernel Exploitation Techniques
+    - Disabling Linux Kernel Mitigations
+    - Modprobe Overwrite Technique
+    - Dirty Pipe Exploitation (Logic Bug)
+    - procfs Vulnerabilities
+    - sysfs Vulnerabilities
+    - IOCTL Handler Vulnerabilities
+    - Out-of-Bounds Read/Write
+    - Uninitialized Memory Usage
+    - Type Confusion
+    - Basic Kernel Stack Overflow & ret2usr
+    - Basic Kernel Heap Overflow
+    - Integer Overflow to Buffer Overflow
+    - Format String Vulnerabilities
+6.4. Exploitation Protection in 64-bit Linux Kernel 6.x and Bypass Techniques
+    - KASLR Bypass Techniques:         
+    1. KASLR Bypass via Function Pointer Leak
+    2. KASLR Bypass via Side-Channel Attacks (EntryBleed)
+    3. KASLR Bypass via Prefetch Side-channel
+    4. KASLR Bypass via Branch Target Buffer (BTB) Collision (Spectre-v2 Variant)
+    5. KASLR Bypass via Keyring Subsystem
+    - SMEP Bypass Techniques:         
+    1. SMEP Bypass via Full In-Kernel ROP Chain
+    2. SMEP Bypass via Dirty Pagetable (Dirty Pagedirectory)
+    - SMAP Bypass Techniques:         
+    1. SMAP Bypass via EFLAGS Manipulation (STAC Instruction)
+    2. SMAP Bypass via Kernel-to-Kernel Copy
+    3. SMAP Bypass via Cred Overwrite Attack
+    - KPTI Bypass Techniques:         
+    1. KPTI Bypass via Microarchitectural Side-Channel Attacks (Retbleed)
+    2. KPTI Bypass via Exploiting Shadow Address Space (KPTI Trampoline Attack & EntryBleed)
+    3. KPTI Bypass via CR3 Modification
+    4. KPTI Bypass via PCID (Process-Context Identifiers) Leakage
+    5. KPTI Bypass via SROP
+    - Control Flow Integrity (CFI) Bypass Techniques:         
+    1. CFI Bypass via Data-Only Attacks
+    2. FineIBT Bypass via "I-Call" Hash Collision
+    3. CFI Bypass via Indirect Call Target Rebranding
+    4. FineIBT Bypass via ENDBR64 Instruction Exploitation
+    - Hardening Allocator Bypass Techniques:         
+    1. Kfence Bypass via Heap Grooming
+    2. SLUB Stick Bypass via Cross-cache Attacks
+    3. Hardening Allocator Bypass via Dirty Pagetable
+    4. Hardening Allocator Bypass via PUD Entry Overwrite
+    5. Bypass via Elastic Objects Attack
+    6. Bypass via SLAB_TYPESAFE_BY_RCU
+    7. Bypass via MSG_MSG Segmentation
+    8. Bypass via Cross-Thread Credential Spraying
+    - Stack Protection Bypass Techniques:         
+    1. Stack Canary Bypass via Arbitrary Read on task_struct
+    2. Shadow Stack Bypass via JOP
+    3. Shadow Stack Bypass via COP
+    4. vmap_stack Bypass via Stack Pivot
+    5. Shadow Stack Bypass via Signal Context Manipulation
+6.5. Advanced Kernel Stack Overflow Exploitation
+6.6. Advanced Kernel Heap Overflow Exploitation
+6.7. Use-After-Free (UAF)
+6.8. Real-Life Linux Kernel Exploitation Examples
+
+PART 7. Vulnerability Research (Fuzzing & Source Code Analysis)
+7.1. Web Application Fuzzing (Burp Suite, Nuclei, OWASP ZAP)
+7.2. Linux Application Fuzzing (AFL, Honggfuzz, LibFuzzer, Radamsa)
+7.3. Linux Kernel Fuzzing (Syzkaller, Snowplow)
+7.4. Web Source Code Vulnerability Detection with Snyk & Google Generative AI
+7.5. Linux C/C++ Source Code Vulnerability Detection with Snyk & Google Generative AI
