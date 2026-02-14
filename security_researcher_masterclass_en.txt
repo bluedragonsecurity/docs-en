@@ -26,15 +26,15 @@ PART 3. Advanced Network Attacks
 
 PART 4. Userspace Exploitation Techniques in 64-bit Linux
 4.1. Overview of 64-bit Linux Userspace Exploitation Vulnerabilities 
-4.2. Fundamentals of Exploitation Tooling for Userspace (DONE) 
-4.3. Basic x64 Stack Overflow Exploitation (DONE)
+4.2. Fundamentals of Exploitation Tooling for Userspace
+4.3. Basic x64 Stack Overflow Exploitation 
 4.4. Memory Corruption Exploitation Bypass Techniques in 64-bit Linux
     - ASLR Bypass Techniques
-        1. Per-page Brute Force (DONE)         
-        2. Information Leak via Format Strings (DONE)         
-        3. ASLR Bypass via ret2plt (DONE)     
+        1. Per-page Brute Force  
+        2. Information Leak via Format Strings   
+        3. ASLR Bypass via ret2plt 
      - PIE (Position Independent Executable) Bypass Techniques
-        1. PIE Bypass via Information Leak (Format String) (DONE)         
+        1. PIE Bypass via Information Leak (Format String)   
         2. PIE Bypass via Byte-by-Byte Brute Force
      - DEP/NX Bypass Techniques
         1. NX Bypass via ROP (Return-Oriented Programming)
