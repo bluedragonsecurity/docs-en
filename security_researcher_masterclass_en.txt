@@ -141,10 +141,7 @@ PART 6. Kernelspace Exploitation Techniques in 64-bit Linux
     3. Shadow Stack Bypass via COP
     4. vmap_stack Bypass via Stack Pivot
     5. Shadow Stack Bypass via Signal Context Manipulation
-6.5. Advanced Kernel Stack Overflow Exploitation
-6.6. Advanced Kernel Heap Overflow Exploitation
-6.7. Use-After-Free (UAF)
-6.8. Real-Life Linux Kernel Exploitation Examples
+6.5. Real-Life Linux Kernel Exploitation Examples
 
 PART 7. Vulnerability Research (Fuzzing & Source Code Analysis)
 7.1. Web Application Fuzzing (Burp Suite, Nuclei, OWASP ZAP)
