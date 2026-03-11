@@ -66,6 +66,11 @@ PART 4. Userspace Exploitation Techniques in 64-bit Linux
     3. House of Tangerine Technique
     4. Tcache Poisoning Technique
     5. Tcache Stashing Technique
+    6. House of Muney - Leakless, ASLR bypass
+    7. House of Emma - TLS/PTR_MANGLE bypass
+    8. House of IO - Safe-Linking bypass via tcache_perthread_struct
+    9. FSOP via Angr-discovered paths (KyleBot's methodology)
+    10. House of Fun (Modern Largebin Attack)
 4.12. Use-After-Free (UAF) Exploitation
     1. Tcache Stashing Unlink Attack
     2. House of Apple (Family)
