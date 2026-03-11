@@ -154,3 +154,4 @@ PART 7. Vulnerability Research (Fuzzing & Source Code Analysis)
 7.3. Linux Kernel Fuzzing (Syzkaller, Snowplow)
 7.4. Web Source Code Vulnerability Detection with Snyk & Google Generative AI
 7.5. Linux C/C++ Source Code Vulnerability Detection with Snyk & Google Generative AI
+7.6. Kernel Static Analysis using Smatch (Static Analysis Tool) to find Logic Bug Vulnerabilities 
