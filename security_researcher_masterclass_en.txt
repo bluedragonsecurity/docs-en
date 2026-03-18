@@ -7,6 +7,7 @@ PART 1. Advanced Web Exploitation Techniques
 1.4. SSTI (Server-Side Template Injection)
 1.5. MSSQL Injection
 1.6. Advanced MySQL Injection
+1.7. Pentesting next.js
 
 PART 2. Advanced Hacking Techniques
 2.1. Advanced Kali Linux Toolset Usage
