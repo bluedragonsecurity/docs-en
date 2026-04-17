@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#0C0E14">
+<meta name="author" content="Antonius (w1sdom) — bluedragonsecurity.com">
+<title>Blue Dragon — Tactical Intelligence Catalog 2026 [EN]</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg:       #0C0E14;
+  --bg2:      #12151E;
+  --bg3:      #181C28;
+  --surface:  #1E2333;
+  --border:   #2A3048;
+  --border2:  #353D5A;
+  --teal:     #00C9C8;
+  --teal2:    #009B9A;
+  --teal-dim: rgba(0,201,200,0.08);
+  --gold:     #F5C842;
+  --red:      #FF4D6D;
+  --red-dim:  rgba(255,77,109,0.1);
+  --orange:   #FF8C42;
+  --green:    #3DDC84;
+  --purple:   #9B72FF;
+  --blue:     #4DA6FF;
+  --text:     #D4DAF0;
+  --muted:    #6B7594;
+  --mono:     'JetBrains Mono', monospace;
+  --sans:     'Inter', sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);min-height:100vh;line-height:1.6;}
+
+/* HEADER */
+.header{background:linear-gradient(135deg,#080B12 0%,#0D1120 60%,#0C2020 100%);border-bottom:1px solid var(--border);padding:32px 40px 28px;position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:0;right:0;width:500px;height:100%;background:radial-gradient(ellipse at right center,rgba(0,201,200,0.06) 0%,transparent 70%);pointer-events:none;}
+.header-inner{max-width:1200px;margin:auto;position:relative;z-index:1;}
+.header-top{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--teal);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--teal);}
+.header h1{font-size:28px;font-weight:700;letter-spacing:-0.5px;color:#fff;line-height:1.2;margin-bottom:8px;}
+.header h1 span{color:var(--teal);}
+.tagline{font-size:13px;color:var(--muted);max-width:560px;}
+.header-sig{text-align:right;font-family:var(--mono);font-size:11px;color:var(--muted);line-height:2;}
+.header-sig .sig-name{color:var(--teal);font-size:13px;font-weight:700;}
+.header-sig a{color:var(--teal);text-decoration:none;}
+.header-stats{display:flex;gap:32px;margin-top:24px;padding-top:20px;border-top:1px solid var(--border);flex-wrap:wrap;}
+.hstat{display:flex;flex-direction:column;gap:2px;}
+.hstat-label{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);}
+.hstat-value{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--teal);}
+
+/* FILTER */
+.filter-bar{
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:10px 40px;display:flex;align-items:center;gap:10px;
+  position:sticky;top:0;z-index:100;
+}
+.filter-scroll{
+  display:flex;align-items:center;gap:8px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;flex:1;
+}
+.filter-scroll::-webkit-scrollbar{display:none;}
+.filter-label{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:1px;white-space:nowrap;}
+.filter-btn{
+  background:transparent;border:1px solid var(--border2);color:var(--muted);
+  font-size:11px;font-family:var(--mono);padding:5px 11px;border-radius:4px;
+  cursor:pointer;transition:all 0.15s;letter-spacing:0.5px;text-transform:uppercase;
+  white-space:nowrap;flex-shrink:0;
+}
+.filter-btn:hover,.filter-btn.active{background:var(--teal-dim);border-color:var(--teal);color:var(--teal);}
+.filter-btn.active{font-weight:600;}
+.total-badge{
+  white-space:nowrap;flex-shrink:0;
+  font-family:var(--mono);font-size:11px;color:var(--gold);
+  background:rgba(245,200,66,0.08);border:1px solid rgba(245,200,66,0.2);
+  padding:5px 14px;border-radius:4px;
+}
+
+/* TABLE */
+.container{max-width:1200px;margin:0 auto;padding:24px 40px 80px;}
+.table-wrap{background:var(--bg2);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
+.table-head{display:grid;grid-template-columns:48px 32px 1fr 140px 175px 145px 80px;background:var(--bg3);border-bottom:1px solid var(--border2);padding:10px 16px;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.item{border-bottom:1px solid var(--border);}
+.item:last-child{border-bottom:none;}
+.row{display:grid;grid-template-columns:48px 32px 1fr 140px 175px 145px 80px;padding:12px 16px;align-items:center;cursor:pointer;transition:background 0.15s;user-select:none;}
+.row:hover{background:var(--teal-dim);}
+.item.open .row{background:var(--teal-dim);border-bottom:1px solid var(--border2);}
+.row-num{font-family:var(--mono);font-size:12px;color:var(--muted);}
+.row-id{font-family:var(--mono);font-size:10px;color:var(--border2);}
+.row-name{font-size:14px;font-weight:500;color:#fff;}
+.row-name .sub{font-size:11px;color:var(--muted);font-weight:400;margin-top:2px;}
+.row-budget{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--gold);}
+.row-budget .est-note{font-size:10px;color:var(--muted);font-weight:400;font-family:var(--sans);margin-top:1px;}
+.row-time{font-family:var(--mono);font-size:12px;color:var(--text);}
+.row-time .time-note{font-size:10px;color:var(--muted);font-family:var(--sans);margin-top:1px;}
+.row-toggle{display:flex;align-items:center;justify-content:center;width:28px;height:28px;border:1px solid var(--border2);border-radius:50%;margin:auto;font-size:12px;color:var(--muted);transition:all 0.2s;}
+.item.open .row-toggle{background:var(--teal);border-color:var(--teal);color:#000;transform:rotate(45deg);}
+
+/* BADGE */
+.badge{display:inline-block;padding:3px 8px;border-radius:4px;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:0.5px;white-space:nowrap;}
+.b-sigint{background:rgba(0,201,200,0.1);color:var(--teal);border:1px solid rgba(0,201,200,0.2);}
+.b-wifi{background:rgba(77,166,255,0.1);color:var(--blue);border:1px solid rgba(77,166,255,0.2);}
+.b-iot{background:rgba(61,220,132,0.1);color:var(--green);border:1px solid rgba(61,220,132,0.2);}
+.b-visual{background:rgba(155,114,255,0.1);color:var(--purple);border:1px solid rgba(155,114,255,0.2);}
+.b-network{background:rgba(245,200,66,0.1);color:var(--gold);border:1px solid rgba(245,200,66,0.2);}
+.b-osint{background:rgba(255,140,66,0.1);color:var(--orange);border:1px solid rgba(255,140,66,0.2);}
+.b-covert{background:rgba(255,200,0,0.07);color:#E0B800;border:1px solid rgba(200,160,0,0.2);}
+.b-restricted{background:var(--red-dim);color:var(--red);border:1px solid rgba(255,77,109,0.2);}
+.b-counters{background:rgba(61,220,132,0.1);color:var(--green);border:1px solid rgba(61,220,132,0.2);}
+.b-rfid{background:rgba(155,114,255,0.1);color:var(--purple);border:1px solid rgba(155,114,255,0.2);}
+.b-forensics{background:rgba(245,200,66,0.1);color:var(--gold);border:1px solid rgba(245,200,66,0.2);}
+.b-drone{background:rgba(77,166,255,0.1);color:var(--blue);border:1px solid rgba(77,166,255,0.2);}
+.b-comms{background:rgba(0,201,200,0.1);color:var(--teal);border:1px solid rgba(0,201,200,0.2);}
+.b-c2{background:rgba(255,140,66,0.1);color:var(--orange);border:1px solid rgba(255,140,66,0.2);}
+
+/* DETAIL */
+.detail{display:none;background:#0E1118;border-top:1px solid var(--border);}
+.item.open .detail{display:block;}
+.detail-inner{padding:24px 20px 24px 96px;}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:16px;}
+.detail-grid.cols3{grid-template-columns:1fr 1fr 1fr;}
+.d-block{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 18px;}
+.d-block.full{grid-column:1/-1;}
+.d-block-label{font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.d-block-label::after{content:'';flex:1;height:1px;background:var(--border);}
+.d-block-body{font-size:13.5px;line-height:1.8;color:#B0BAD4;}
+.d-block-body b{color:#D4DAF0;}
+.d-block-body ul{padding-left:16px;margin-top:6px;}
+.d-block-body li{margin-bottom:4px;}
+
+/* BOM TABLE */
+.bom{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:4px;}
+.bom th{background:var(--bg3);color:var(--muted);font-family:var(--mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:8px 10px;text-align:left;border-bottom:1px solid var(--border2);}
+.bom td{padding:8px 10px;border-bottom:1px solid var(--border);color:#B0BAD4;vertical-align:top;}
+.bom tr:hover td{background:var(--teal-dim);}
+.bom td.price{font-family:var(--mono);font-weight:600;color:var(--gold);text-align:right;white-space:nowrap;}
+.bom tr.total td{background:rgba(245,200,66,0.06);color:var(--gold);font-weight:700;border-top:1px solid rgba(245,200,66,0.2);font-family:var(--mono);}
+.bom tr.total td.price{font-size:14px;}
+
+/* STATS */
+.detail-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+.dstat{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:10px 16px;display:flex;flex-direction:column;gap:2px;}
+.dstat-label{font-family:var(--mono);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);}
+.dstat-value{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--teal);}
+
+/* WARNINGS */
+.warn-strip{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:6px;font-size:12.5px;margin-top:12px;}
+.warn-info{background:rgba(77,166,255,0.07);border-left:3px solid var(--blue);color:#90B4D8;}
+.warn-caution{background:rgba(255,140,66,0.07);border-left:3px solid var(--orange);color:#C09060;}
+.warn-danger{background:var(--red-dim);border-left:3px solid var(--red);color:#C0607A;}
+
+/* SECTION DIVIDER */
+.section-row{background:var(--bg3);border-bottom:1px solid var(--border2);padding:8px 16px;display:flex;align-items:center;gap:10px;}
+.section-row span{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.section-row .s-badge{font-size:10px;background:var(--bg2);border:1px solid var(--border2);padding:2px 10px;border-radius:3px;}
+
+.item.hidden{display:none;}
+
+/* PLAIN LANGUAGE BLOCK */
+.plain-block{
+  background: linear-gradient(135deg, rgba(0,201,200,0.06) 0%, rgba(0,201,200,0.02) 100%);
+  border: 1px solid rgba(0,201,200,0.18);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 18px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.plain-icon{ font-size: 22px; flex-shrink:0; margin-top:2px; }
+.plain-content{}
+.plain-label{
+  font-family: var(--mono); font-size: 9px; letter-spacing: 2px;
+  text-transform: uppercase; color: var(--teal); margin-bottom: 6px;
+}
+.plain-text{
+  font-size: 14px; line-height: 1.75; color: #C8D8F0;
+  font-style: italic;
+}
+
+/* FINGERPRINT WATERMARK */
+.fp-bar{
+  background: rgba(0,201,200,0.04);
+  border-bottom: 1px solid rgba(0,201,200,0.12);
+  padding: 6px 40px;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+.fp-bar a{color:var(--teal);text-decoration:none;}
+
+/* FOOTER */
+.page-footer{text-align:center;padding:40px;border-top:1px solid var(--border);font-family:var(--mono);font-size:11px;color:var(--muted);}
+.page-footer .sig{color:var(--teal);font-size:13px;font-weight:700;margin-bottom:6px;}
+.page-footer a{color:var(--teal);text-decoration:none;}
+.classified{display:inline-block;margin-top:14px;border:1px solid var(--border2);padding:4px 20px;border-radius:3px;font-size:10px;letter-spacing:3px;color:var(--muted);}
+
+/* AJAX LOADER */
+.detail-loader{
+  display:flex;align-items:center;justify-content:center;
+  padding:40px;gap:12px;color:var(--muted);
+  font-family:var(--mono);font-size:12px;
+}
+.detail-loader .spin{
+  width:20px;height:20px;border:2px solid var(--border2);
+  border-top-color:var(--teal);border-radius:50%;
+  animation:spin 0.7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ── TABLET ── */
+@media(max-width:1024px){
+  .header{padding:28px 24px 22px;}
+  .filter-bar{padding:12px 16px;}
+  .container{padding:16px 16px 60px;}
+  .fp-bar{padding:6px 16px;}
+  .table-head{grid-template-columns:40px 28px 1fr 120px 155px 130px 60px;}
+  .row{grid-template-columns:40px 28px 1fr 120px 155px 130px 60px;}
+}
+
+/* ── MOBILE ── */
+@media(max-width:768px){
+  .header{padding:20px 16px 18px;}
+  .header-top{flex-direction:column;gap:12px;}
+  .header-sig{display:none;}
+  .header h1{font-size:20px;}
+  .tagline{font-size:12px;}
+  .header-stats{gap:16px;padding-top:16px;margin-top:16px;}
+  .hstat-value{font-size:15px;}
+  .fp-bar{padding:6px 12px;font-size:9px;}
+  .filter-bar{padding:8px 12px;gap:8px;flex-direction:column;align-items:stretch;}
+  .filter-scroll{gap:6px;}
+  .filter-label{display:none;}
+  .filter-btn{font-size:10px;padding:8px 11px;border-radius:6px;min-height:36px;}
+  .total-badge{font-size:10px;padding:6px 10px;text-align:center;}
+  .container{padding:10px 10px 60px;}
+  .table-wrap{border-radius:8px;}
+  .table-head{display:none;}
+  .row{
+    display:flex;flex-direction:column;
+    padding:14px 14px 12px;gap:0;position:relative;
+  }
+  .row-toggle{position:absolute;top:14px;right:14px;width:32px;height:32px;font-size:14px;}
+  .row-num{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;display:block;}
+  .row-id{display:none;}
+  .row-name{font-size:14px;font-weight:600;padding-right:44px;line-height:1.35;margin-bottom:8px;}
+  .row-name .sub{font-size:11px;margin-top:3px;line-height:1.5;}
+  .row-cat{margin-bottom:8px;}
+  .row-budget{display:flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--gold);margin-bottom:2px;}
+  .row-budget .est-note{font-size:10px;color:var(--muted);font-weight:400;font-family:var(--sans);margin-top:0;}
+  .row-time{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);font-family:var(--mono);}
+  .row-time .time-note{font-size:10px;color:var(--muted);font-family:var(--sans);}
+  .section-row{padding:7px 14px;}
+  .section-row span{font-size:9px;}
+  .detail-inner{padding:14px 12px 18px;}
+  .detail-grid{grid-template-columns:1fr !important;gap:12px;margin-bottom:12px;}
+  .d-block{padding:13px 14px;}
+  .d-block-label{font-size:9px;}
+  .d-block-body{font-size:13px;line-height:1.7;}
+  .bom-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:4px;}
+  .bom{font-size:12px;min-width:340px;}
+  .bom th{padding:7px 8px;font-size:9px;}
+  .bom td{padding:7px 8px;}
+  .detail-stats{gap:8px;}
+  .dstat{padding:9px 12px;}
+  .dstat-label{font-size:8px;}
+  .dstat-value{font-size:13px;}
+  .plain-block{padding:12px 14px;gap:10px;margin-bottom:14px;}
+  .plain-icon{font-size:18px;}
+  .plain-text{font-size:13px;line-height:1.7;}
+  .plain-label{font-size:8px;}
+  .warn-strip{font-size:12px;padding:9px 12px;}
+  .page-footer{padding:28px 16px;}
+  .page-footer .sig{font-size:13px;}
+  .page-footer div{font-size:10px;line-height:2;}
+}
+</style>
+</head>
+<body>
+
+<!-- FINGERPRINT BAR -->
+<div class="fp-bar">
+  AUTHORED BY &nbsp;·&nbsp; <a href="https://bluedragonsecurity.com" target="_blank">Antonius (w1sdom)</a> &nbsp;·&nbsp; <a href="https://bluedragonsecurity.com" target="_blank">bluedragonsecurity.com</a> &nbsp;·&nbsp; @bluedragonsec &nbsp;·&nbsp; Tangerang, Indonesia
+</div>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-top">
+      <div>
+        <div class="eyebrow">Blue Dragon Security · 2026</div>
+        <h1>Tactical Intelligence <span>Master Catalog</span></h1>
+        <p class="tagline">36 tactical intelligence devices · Click any row for BOM, function, architecture, and conservative budget estimates. Filter by category using the buttons below.</p>
+      </div>
+      <div class="header-sig">
+        <div class="sig-name">w1sdom</div>
+        <a href="https://bluedragonsecurity.com">bluedragonsecurity.com</a><br>
+        Tangerang, Indonesia<br>
+        @bluedragonsec · github.com/antoniusrobotsoft
+      </div>
+    </div>
+    <div class="header-stats">
+      <div class="hstat"><span class="hstat-label">Total Devices</span><span class="hstat-value">36 Units</span></div>
+      <div class="hstat"><span class="hstat-label">Categories</span><span class="hstat-value">12</span></div>
+      <div class="hstat"><span class="hstat-label">Total Budget (conservative)</span><span class="hstat-value">~Rp 68M</span></div>
+      <div class="hstat"><span class="hstat-label">Total Timeline (worst-case)</span><span class="hstat-value">~6 Months</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <span class="filter-label">FILTER:</span>
+  <div class="filter-scroll">
+    <button class="filter-btn active" onclick="filterCat('all',this)">All</button>
+    <button class="filter-btn" onclick="filterCat('c2',this)">C2</button>
+    <button class="filter-btn" onclick="filterCat('sigint',this)">SIGINT</button>
+    <button class="filter-btn" onclick="filterCat('wifi',this)">WiFi/BT</button>
+    <button class="filter-btn" onclick="filterCat('iot',this)">IoT/RF</button>
+    <button class="filter-btn" onclick="filterCat('visual',this)">Visual</button>
+    <button class="filter-btn" onclick="filterCat('network',this)">Network</button>
+    <button class="filter-btn" onclick="filterCat('osint',this)">OSINT</button>
+    <button class="filter-btn" onclick="filterCat('covert',this)">Covert</button>
+    <button class="filter-btn" onclick="filterCat('counters',this)">Counter-Surv</button>
+    <button class="filter-btn" onclick="filterCat('rfid',this)">RFID/NFC</button>
+    <button class="filter-btn" onclick="filterCat('forensics',this)">Forensics</button>
+    <button class="filter-btn" onclick="filterCat('drone',this)">Drone</button>
+    <button class="filter-btn" onclick="filterCat('comms',this)">Comms</button>
+  </div>
+  <span class="total-badge" id="total-badge">36 items</span>
+</div>
+
+<div class="container">
+<div class="table-wrap">
+
+  <div class="table-head">
+    <span>#</span><span>ID</span><span>Device Name</span>
+    <span>Category</span><span>Conservative Budget</span><span>Build Time (incl. spare)</span><span>Detail</span>
+  </div>
+
+<!-- ══════════════════════════════════════════════════════════ C2 -->
+<div class="section-row" data-cat-divider="c2"><span>🔧 C2 Field Deployment</span></div>
+
+<div class="item" data-cat="c2">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">01</span><span class="row-id">P1</span>
+    <div class="row-name">"Warturtle" C2 Deployment Box<div class="sub">Solar · IP67 · WireGuard VPN · RPi 4 · Autonomous Field C2</div></div>
+    <span class="row-cat"><span class="badge b-c2">C2 Field</span></span>
+    <div class="row-budget">Rp 3,500,000<div class="est-note">Component price buffer +60%</div></div>
+    <div class="row-time">14–18 Days<div class="time-note">+8 days spare (calibration + casing)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="0">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ SIGINT -->
+<div class="section-row" data-cat-divider="sigint"><span>📡 SIGINT / RF Intelligence</span></div>
+
+<div class="item" data-cat="sigint">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">02</span><span class="row-id">V1</span>
+    <div class="row-name">Portable SDR Scanner<div class="sub">RTL-SDR Blog V4 · 500kHz–1.75GHz · RPi 4 + 7" Touchscreen · 8–12 Hours</div></div>
+    <span class="row-cat"><span class="badge b-sigint">SIGINT</span></span>
+    <div class="row-budget">Rp 2,900,000<div class="est-note">Component buffer +55%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+5 days spare (GNU Radio setup)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="1">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="sigint">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">03</span><span class="row-id">V1</span>
+    <div class="row-name">Wideband SIGINT Unit — HackRF One<div class="sub">1MHz–6GHz Full TX/RX · Yagi 14dBi · URH Decoder · ~2km LoS</div></div>
+    <span class="row-cat"><span class="badge b-sigint">SIGINT</span></span>
+    <div class="row-budget">Rp 5,000,000<div class="est-note">HackRF clone volatile buffer +55%</div></div>
+    <div class="row-time">3–4 Weeks<div class="time-note">+1 week spare (calibration + decode training)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="2">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="sigint">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">04</span><span class="row-id">V1</span>
+    <div class="row-name">Direction Finding (DF) Unit — 4× RTL-SDR Array<div class="sub">KrakenSDR · Bearing ±5–10° · GPS Triangulation · ~5km Radius</div></div>
+    <span class="row-cat"><span class="badge b-sigint">SIGINT</span></span>
+    <div class="row-budget">Rp 6,500,000<div class="est-note">Array + hardware calibration buffer +57%</div></div>
+    <div class="row-time">5–6 Weeks<div class="time-note">+2 weeks spare (array calibration + field test)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="3">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="sigint">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">05</span><span class="row-id">P2</span>
+    <div class="row-name">"Signal Ghost" Passive IMSI Sniffer<div class="sub">RTL-SDR + gr-gsm · GSM 900/1800MHz · Stealth · Telegram Alert · Passive</div></div>
+    <span class="row-cat"><span class="badge b-sigint">SIGINT</span></span>
+    <div class="row-budget">Rp 2,000,000<div class="est-note">Component availability buffer +62%</div></div>
+    <div class="row-time">8–10 Days<div class="time-note">+3 days spare (gr-gsm tuning per BTS)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="4">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="sigint">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">06</span><span class="row-id">P2</span>
+    <div class="row-name">"Spectrum" RF Audit Tool (Sub-GHz)<div class="sub">CC1101 + ESP32 · 300–928MHz · Capture &amp; Replay · Cigarette-Box Form Factor</div></div>
+    <span class="row-cat"><span class="badge b-sigint">SIGINT</span></span>
+    <div class="row-budget">Rp 580,000<div class="est-note">PCB + custom casing buffer +90%</div></div>
+    <div class="row-time">5–7 Days<div class="time-note">+2 days spare (3D print casing + firmware debug)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="5">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ WIFI/BT -->
+<div class="section-row" data-cat-divider="wifi"><span>📶 WiFi / Bluetooth Intelligence</span></div>
+
+<div class="item" data-cat="wifi">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">07</span><span class="row-id">V1</span>
+    <div class="row-name">Passive WiFi Probe Capture Unit<div class="sub">RPi Zero 2W · Alfa AWUS036ACH · SQLite Dashboard · Power Bank Form Factor</div></div>
+    <span class="row-cat"><span class="badge b-wifi">WiFi/BT</span></span>
+    <div class="row-budget">Rp 1,600,000<div class="est-note">Alfa availability buffer +61%</div></div>
+    <div class="row-time">5–6 Days<div class="time-note">+2 days spare (dashboard tuning)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="6">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="wifi">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">08</span><span class="row-id">V1</span>
+    <div class="row-name">WiFi Rogue AP + Credential Capture<div class="sub">Hostapd · SSLstrip2 · Bettercap · Active MITM · ~100m Radius</div></div>
+    <span class="row-cat"><span class="badge b-wifi">WiFi/BT</span></span>
+    <div class="row-budget">Rp 2,800,000<div class="est-note">Dual Alfa + RPi 4 buffer +57%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (captive portal testing)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="7">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="wifi">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">09</span><span class="row-id">V1</span>
+    <div class="row-name">Bluetooth / BLE Intelligence Scanner<div class="sub">Ubertooth One · BlueHydra · BT Classic + BLE · Fingerprinting · ~50m</div></div>
+    <span class="row-cat"><span class="badge b-wifi">WiFi/BT</span></span>
+    <div class="row-budget">Rp 2,400,000<div class="est-note">Ubertooth availability buffer +63%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (BlueHydra setup + testing)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="8">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ IoT/RF -->
+<div class="section-row" data-cat-divider="iot"><span>🏠 IoT Assessment &amp; RF Replay</span></div>
+
+<div class="item" data-cat="iot">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">10</span><span class="row-id">V1</span>
+    <div class="row-name">Zigbee / Z-Wave Protocol Sniffer<div class="sub">CC2531 + CC1352P · 2.4GHz + 868/915MHz · Smart Building Audit</div></div>
+    <span class="row-cat"><span class="badge b-iot">IoT/RF</span></span>
+    <div class="row-budget">Rp 600,000<div class="est-note">Firmware flashing tools buffer +87%</div></div>
+    <div class="row-time">4–5 Days<div class="time-note">+2 days spare (firmware flash + Wireshark setup)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="9">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="iot">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">11</span><span class="row-id">V1</span>
+    <div class="row-name">Universal RF Replay Device<div class="sub">CC1101 + ESP32 · 300–928MHz · OOK/ASK/FSK · OLED · BLE Export · Cigarette-Box</div></div>
+    <span class="row-cat"><span class="badge b-iot">IoT/RF</span></span>
+    <div class="row-budget">Rp 500,000<div class="est-note">3D print + PCB buffer +80%</div></div>
+    <div class="row-time">5–6 Days<div class="time-note">+2 days spare (firmware + field signal test)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="10">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="iot">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">12</span><span class="row-id">V1</span>
+    <div class="row-name">IP Camera Scanner &amp; Assessment Box<div class="sub">Masscan + Metasploit · Default Cred DB 500+ Brands · Auto-Screenshot Evidence</div></div>
+    <span class="row-cat"><span class="badge b-iot">IoT/RF</span></span>
+    <div class="row-budget">Rp 1,400,000<div class="est-note">RPi + SSD + maintenance buffer +64%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (Metasploit modules update + DB)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="11">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ VISUAL -->
+<div class="section-row" data-cat-divider="visual"><span>👁 Visual Intelligence</span></div>
+
+<div class="item" data-cat="visual">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">13</span><span class="row-id">P1</span>
+    <div class="row-name">"Solar-Gaze" AI Eye — Autonomous Surveillance Camera<div class="sub">ESP32-CAM · TFLite Person Detection · Solar 5W · Telegram · PIR Double-Trigger</div></div>
+    <span class="row-cat"><span class="badge b-visual">Visual Intel</span></span>
+    <div class="row-budget">Rp 800,000<div class="est-note">Waterproof mount + spare unit buffer +86%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (AI model tuning + field placement)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="12">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="visual">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">14</span><span class="row-id">V1</span>
+    <div class="row-name">Face Recognition Intelligence Unit<div class="sub">InsightFace ArcFace · &gt;99% Accuracy · Fully Offline · Enroll from 1 Photo · RPi 4 8GB</div></div>
+    <span class="row-cat"><span class="badge b-visual">Visual Intel</span></span>
+    <div class="row-budget">Rp 3,000,000<div class="est-note">SSD + quality camera buffer +63%</div></div>
+    <div class="row-time">3–4 Weeks<div class="time-note">+1 week spare (model optimization + enrollment DB)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="13">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ NETWORK -->
+<div class="section-row" data-cat-divider="network"><span>🔌 Network Intelligence</span></div>
+
+<div class="item" data-cat="network">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">15</span><span class="row-id">P1</span>
+    <div class="row-name">Passive Network Tap Node<div class="sub">RPi Zero W · Transparent L2 Bridge · Auto Credential Parser · Undetectable</div></div>
+    <span class="row-cat"><span class="badge b-network">Network</span></span>
+    <div class="row-budget">Rp 1,100,000<div class="est-note">RPi Zero availability buffer +71%</div></div>
+    <div class="row-time">5–6 Days<div class="time-note">+2 days spare (bridge mode testing)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="14">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="network">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">16</span><span class="row-id">V1</span>
+    <div class="row-name">Covert LAN Tap (Enhanced) — RPi Zero 2W<div class="sub">128GB · Quad-Core Parser · Auto-Flag Suspicious Traffic · File Reconstruction</div></div>
+    <span class="row-cat"><span class="badge b-network">Network</span></span>
+    <div class="row-budget">Rp 1,250,000<div class="est-note">128GB MicroSD + Zero 2W buffer +76%</div></div>
+    <div class="row-time">5–6 Days<div class="time-note">+2 days spare (parser testing + C2 detection tuning)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="15">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ OSINT -->
+<div class="section-row" data-cat-divider="osint"><span>🔍 OSINT &amp; Data Intelligence</span></div>
+
+<div class="item" data-cat="osint">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">17</span><span class="row-id">V1</span>
+    <div class="row-name">Phone Number Intelligence Box<div class="sub">15+ Platform Aggregator · Batch Processing · Breach DB · PDF Report · Mini PC</div></div>
+    <span class="row-cat"><span class="badge b-osint">OSINT</span></span>
+    <div class="row-budget">Rp 2,500,000<div class="est-note">Mini PC + SSD + API subscription buffer +69%</div></div>
+    <div class="row-time">2–3 Weeks<div class="time-note">+1 week spare (API setup + breach DB import)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="16">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="osint">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">18</span><span class="row-id">V1</span>
+    <div class="row-name">Social Media Account Mapper<div class="sub">Sherlock + Maigret · 50+ Platforms · D3.js Relationship Graph · Monitoring + Archive</div></div>
+    <span class="row-cat"><span class="badge b-osint">OSINT</span></span>
+    <div class="row-budget">Rp 1,000,000<div class="est-note">Server + archive storage buffer +82%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (scraper maintenance + platform bypass)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="17">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ COVERT -->
+<div class="section-row" data-cat-divider="covert"><span>🕵️ Covert Collection Devices</span></div>
+
+<div class="item" data-cat="covert">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">19</span><span class="row-id">P2</span>
+    <div class="row-name">"Pathfinder" AI GPS Tracker<div class="sub">ESP32 + NEO-6M + MPU6050 · Smart Sleep · Zero RF When Stationary · Anti-Bug-Sweeper</div></div>
+    <span class="row-cat"><span class="badge b-covert">Covert</span></span>
+    <div class="row-budget">Rp 900,000<div class="est-note">IP65 casing + N52 magnet buffer +100%</div></div>
+    <div class="row-time">7–9 Days<div class="time-note">+3 days spare (G-force threshold tuning + field test)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="18">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="covert">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">20</span><span class="row-id">V1</span>
+    <div class="row-name">Covert GPS Tracker Realtime 4G LTE<div class="sub">SIM7600 + NEO-8M · IP67 · N52 Magnet · Geofence · Telegram · 7–14 Days</div></div>
+    <span class="row-cat"><span class="badge b-covert">Covert</span></span>
+    <div class="row-budget">Rp 1,450,000<div class="est-note">SIM7600 availability buffer +75%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (MQTT server + dashboard setup)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="19">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="covert">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">21</span><span class="row-id">V1</span>
+    <div class="row-name">Covert Audio Recorder (Voice Activated)<div class="sub">ESP32-S3 + INMP441 · VAD Threshold · 48–72 Hours · USB Charger Adapter Form Factor</div></div>
+    <span class="row-cat"><span class="badge b-covert">Covert</span></span>
+    <div class="row-budget">Rp 650,000<div class="est-note">Custom casing + spare unit buffer +102%/unit</div></div>
+    <div class="row-time">5–7 Days<div class="time-note">+2 days spare (VAD tuning + noise floor calibration)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="20">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="covert">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">22</span><span class="row-id">P1</span>
+    <div class="row-name">"The Chameleon" USB Implant <span style="font-size:11px;color:var(--red);font-weight:400;">— Restricted Specification</span><div class="sub">ESP32-S3 Native USB · HID Emulation · WiFi Onboard · Charger Cable Form Factor</div></div>
+    <span class="row-cat"><span class="badge b-restricted">⚠ Restricted</span></span>
+    <div class="row-budget">Rp 850,000<div class="est-note">Custom casing + SMD components buffer +70%/unit</div></div>
+    <div class="row-time">6–8 Days<div class="time-note">+2 days spare (physical camouflage + QC)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="21">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="covert">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">23</span><span class="row-id">P2</span>
+    <div class="row-name">"Sonic-Wave" Remote Wi-Fi Microphone <span style="font-size:11px;color:var(--red);font-weight:400;">— Restricted Specification</span><div class="sub">ESP32-S3 + INMP441 · UDP AES-128 · High-Gain Antenna · Realtime Stream</div></div>
+    <span class="row-cat"><span class="badge b-restricted">⚠ Restricted</span></span>
+    <div class="row-budget">Rp 1,000,000<div class="est-note">Antenna + custom PCB buffer +103%</div></div>
+    <div class="row-time">8–10 Days<div class="time-note">+3 days spare (encryption tuning + WiFi range test)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="22">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ COUNTER-SURV -->
+<div class="section-row" data-cat-divider="counters"><span>🛡️ Counter-Surveillance &amp; Bug Detection</span></div>
+
+<div class="item" data-cat="counters">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">24</span><span class="row-id">V2</span>
+    <div class="row-name">RF Bug / Hidden Camera Detector<div class="sub">ESP32 + RF Detector Module · IR Lens Detection · 1MHz–6GHz · Sweep Mode</div></div>
+    <span class="row-cat"><span class="badge b-counters">Counter-Surv</span></span>
+    <div class="row-budget">Rp 1,450,000<div class="est-note">RF detector module import buffer +95%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (sensitivity calibration + false positive reduction)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="23">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="counters">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">25</span><span class="row-id">V2</span>
+    <div class="row-name">Non-Linear Junction Detector (NLJD) — HackRF Based<div class="sub">920MHz TX Probe · Harmonic 1840/2760MHz · Detects OFF Devices · Equivalent to Rp 200M+ Commercial Units</div></div>
+    <span class="row-cat"><span class="badge b-counters">Counter-Surv</span></span>
+    <div class="row-budget">Rp 6,500,000<div class="est-note">HackRF + LNA + custom antenna buffer +80%</div></div>
+    <div class="row-time">4–5 Weeks<div class="time-note">+2 weeks spare (GNU Radio script + field training)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="24">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="counters">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">26</span><span class="row-id">V2</span>
+    <div class="row-name">Spectrum Anomaly Room Guard (24/7 Automated)<div class="sub">RTL-SDR + ML Isolation Forest · 24h Baseline Learning · Headless · Telegram Alert</div></div>
+    <span class="row-cat"><span class="badge b-counters">Counter-Surv</span></span>
+    <div class="row-budget">Rp 1,800,000<div class="est-note">ML training setup + spare unit buffer +87%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (ML model baseline validation)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="25">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ RFID -->
+<div class="section-row" data-cat-divider="rfid"><span>💳 RFID / NFC / Physical Access</span></div>
+
+<div class="item" data-cat="rfid">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">27</span><span class="row-id">V2</span>
+    <div class="row-name">RFID/NFC Multi-Protocol Cloner<div class="sub">PN532 + ACR122U · EM4100 · HID Prox · MIFARE Classic · Clone &amp; Emulate</div></div>
+    <span class="row-cat"><span class="badge b-rfid">RFID/NFC</span></span>
+    <div class="row-budget">Rp 1,500,000<div class="est-note">ACR122U + blank cards set buffer +84%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (MIFARE nested attack testing + blank card stock)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="26">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="rfid">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">28</span><span class="row-id">V2</span>
+    <div class="row-name">Covert RFID Badge Skimmer<div class="sub">Long-range 125kHz + 13.56MHz · ESP32-BLE · Silent · BLE Export · Clipboard Form Factor</div></div>
+    <span class="row-cat"><span class="badge b-rfid">RFID/NFC</span></span>
+    <div class="row-budget">Rp 1,200,000<div class="est-note">Antenna booster PCB + large LiPo buffer +107%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (range testing + BLE GATT debugging)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="27">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ FORENSICS -->
+<div class="section-row" data-cat-divider="forensics"><span>🔬 Field Digital Forensics</span></div>
+
+<div class="item" data-cat="forensics">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">29</span><span class="row-id">V2</span>
+    <div class="row-name">Mobile Device Triage Unit<div class="sub">ADB + Frida + Autopsy · Android · SHA-256 Chain of Custody · HTML Evidence Report</div></div>
+    <span class="row-cat"><span class="badge b-forensics">Forensics</span></span>
+    <div class="row-budget">Rp 4,200,000<div class="est-note">Mini PC + 1TB external SSD buffer +70%</div></div>
+    <div class="row-time">2–3 Weeks<div class="time-note">+1 week spare (Frida bypass per-device testing + report template)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="28">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="forensics">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">30</span><span class="row-id">V2</span>
+    <div class="row-name">Portable Disk Imager + Write Blocker<div class="sub">Guymager + E01 + SHA-256 · ~150MB/s · International Chain of Custody Standard</div></div>
+    <span class="row-cat"><span class="badge b-forensics">Forensics</span></span>
+    <div class="row-budget">Rp 3,600,000<div class="est-note">2TB NVMe SSD volatile price buffer +67%</div></div>
+    <div class="row-time">10–14 Days<div class="time-note">+4 days spare (Guymager profiling + report template)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="29">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="forensics">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">31</span><span class="row-id">V2</span>
+    <div class="row-name">Network Forensic Capture &amp; Analysis Box<div class="sub">Arkime + Zeek + Elasticsearch · Full Packet Capture 100/1000Mbps · Offline Dashboard</div></div>
+    <span class="row-cat"><span class="badge b-forensics">Forensics</span></span>
+    <div class="row-budget">Rp 3,200,000<div class="est-note">N100 Mini PC + 1TB NVMe buffer +81%</div></div>
+    <div class="row-time">2–3 Weeks<div class="time-note">+1 week spare (Arkime + Elasticsearch tuning)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="30">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ DRONE -->
+<div class="section-row" data-cat-divider="drone"><span>🚁 Drone Intelligence &amp; Counter-Drone</span></div>
+
+<div class="item" data-cat="drone">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">32</span><span class="row-id">V2</span>
+    <div class="row-name">Drone ISR Quadcopter — Sovereign Platform<div class="sub">Pixhawk 6C · ArduCopter · 4K + FLIR Thermal · Waypoint GPS · Zero Cloud Telemetry</div></div>
+    <span class="row-cat"><span class="badge b-drone">Drone</span></span>
+    <div class="row-budget">Rp 9,500,000<div class="est-note">FLIR Lepton volatile + motor set buffer +76%</div></div>
+    <div class="row-time">6–8 Weeks<div class="time-note">+2 weeks spare (PID tuning + waypoint test + FLIR integration)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="31">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="drone">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">33</span><span class="row-id">V2</span>
+    <div class="row-name">Counter-Drone RF Detection System<div class="sub">2× RTL-SDR · DJI/FPV/Autel Signature DB · ML Classifier · Bearing Est. · Passive 24/7</div></div>
+    <span class="row-cat"><span class="badge b-drone">Drone</span></span>
+    <div class="row-budget">Rp 3,800,000<div class="est-note">RPi 4 + dual SDR + antenna buffer +71%</div></div>
+    <div class="row-time">3–4 Weeks<div class="time-note">+1 week spare (signature DB update + ML classifier training)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="32">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ COMMS -->
+<div class="section-row" data-cat-divider="comms"><span>🔐 Secure Communications &amp; Field Encryption</span></div>
+
+<div class="item" data-cat="comms">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">34</span><span class="row-id">V2</span>
+    <div class="row-name">Off-Grid Encrypted Mesh Radio (LoRa/Meshtastic)<div class="sub">SX1276 + ESP32 · AES-256 E2E · 5–15km/hop · Zero Internet · 3–7 Day Battery</div></div>
+    <span class="row-cat"><span class="badge b-comms">Comms</span></span>
+    <div class="row-budget">Rp 680,000<div class="est-note">Fiberglass antenna + casing buffer +97%/node</div></div>
+    <div class="row-time">4–6 Days<div class="time-note">+2 days spare (Meshtastic channel config + mesh test)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="33">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="comms">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">35</span><span class="row-id">V2</span>
+    <div class="row-name">Faraday Bag Custom (Signal Isolator)<div class="sub">Cu + Ni Fabric · -80dB All Bands · GSM/4G/5G/WiFi/BT/GPS/NFC Total Block</div></div>
+    <span class="row-cat"><span class="badge b-comms">Comms</span></span>
+    <div class="row-budget">Rp 700,000<div class="est-note">Conductive zipper import buffer +119%/unit</div></div>
+    <div class="row-time">3–4 Days<div class="time-note">+1 day spare (RTL-SDR QC test per unit)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="34">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+<div class="item" data-cat="comms">
+  <div class="row" onclick="toggle(this)">
+    <span class="row-num">36</span><span class="row-id">V2</span>
+    <div class="row-name">DIY FIDO2 / TOTP Hardware Security Key<div class="sub">ESP32-S3 USB HID · FIDO2/WebAuthn · Anti-Phish · Auto-Wipe 10 Fails · Open Source Auditable</div></div>
+    <span class="row-cat"><span class="badge b-comms">Comms</span></span>
+    <div class="row-budget">Rp 320,000<div class="est-note">Resin casing + PCB + testing buffer +118%/unit</div></div>
+    <div class="row-time">5–6 Days<div class="time-note">+2 days spare (FIDO2 compliance test + TOTP validation)</div></div>
+    <span class="row-toggle">+</span>
+  </div>
+  <div class="detail"><div class="detail-inner" data-idx="35">
+    <div class="detail-loader"><div class="spin"></div> Loading details…</div>
+  </div></div>
+</div>
+
+</div><!-- /table-wrap -->
+</div><!-- /container -->
+
+<div class="page-footer">
+  <div class="sig">Blue Dragon Security — Tactical Intelligence Master Catalog 2026 [EN]</div>
+  <div>
+    <span style="color:var(--teal);font-weight:700;">w1sdom (Antonius)</span> &nbsp;·&nbsp;
+    <a href="https://bluedragonsecurity.com" target="_blank">bluedragonsecurity.com</a> &nbsp;·&nbsp;
+    Tangerang, Indonesia &nbsp;·&nbsp;
+    <a href="https://github.com/antoniusrobotsoft" target="_blank">github.com/antoniusrobotsoft</a> &nbsp;·&nbsp;
+    @bluedragonsec
+  </div>
+  <div class="classified">🔒 RESTRICTED DOCUMENT — INTERNAL USE ONLY</div>
+</div>
+
+<script>
+// ── DETAIL DATA (English) ───────────────────────────────────────────────────
+const DETAILS = [
+  // 00 — Warturtle C2
+  {
+    plain: `Imagine a "mini headquarters" that can be covertly deployed in the field — on a rooftop, behind bushes, or on a pole — operating autonomously on solar energy. This unit serves as a secret communications hub between operators and all surrounding devices, requiring no commercial power grid or internet.`,
+    bom: [
+      ['Raspberry Pi 4','8GB RAM','Rp 1,100,000'],
+      ['4G LTE USB Modem','Quectel EC21 / Huawei E3372','Rp 450,000'],
+      ['Flexible Solar Panel 10W','18V OC','Rp 280,000'],
+      ['18650 Battery ×6 + Holder + BMS','~22Wh protected','Rp 380,000'],
+      ['MPPT Solar Charge Controller','5A mini','Rp 150,000'],
+      ['IP67 Plastic Enclosure','25×18×12cm','Rp 250,000'],
+      ['9dBi Dual-Band WiFi Antenna','RP-SMA + pigtail','Rp 220,000'],
+      ['Step-down + wiring + misc','Buck converter + cables','Rp 270,000'],
+      ['MicroSD 64GB (OS + log)','Class 10 A2','Rp 145,000'],
+      ['Shipping + spare components','10% buffer','Rp 255,000'],
+    ],
+    func: `This unit operates as an <b>autonomous C2 hub in the field</b>, running independently without grid power using solar panels.<br><br>
+<b>1. Encrypted comms relay:</b> WireGuard VPN tunnel to a central server. Operators can securely access all field devices remotely.<br><br>
+<b>2. Wireless intelligence:</b> Bettercap + airmon-ng — passive scan of all SSIDs, MAC addresses, and probe requests in the surrounding area. Logged to SQLite with timestamps.<br><br>
+<b>3. AI power management:</b> Python script sampling battery voltage every 5 minutes. Battery &lt;20% → disable non-essential services. Battery &lt;10% → full hibernation, only RTC active for scheduled wake-up.<br><br>
+<b>4. Orchestrator:</b> Acts as relay + C2 for other field devices (Solar-Gaze, Network Tap) that lack their own connectivity.`,
+    arch: `<b>OS:</b> Raspberry Pi OS Lite 64-bit (headless, minimal) · <b>VPN:</b> WireGuard (UDP tunnel) + Reverse SSH fallback · <b>Wireless:</b> Bettercap, Aircrack-ng suite, hostapd · <b>Power Monitor:</b> Custom Python (GPIO/ADC) + Telegram alert · <b>Service Manager:</b> systemd with auto-restart for all processes · <b>Solar runtime:</b> 10W panel + MPPT → indefinite operation during normal Indonesian daylight (≥5 peak sun hours)`,
+    stats: [['Runtime (full battery)','72+ Hours'],['Runtime (solar)','Indefinite'],['Protection','IP67'],['Tunnel','WireGuard VPN'],['Build Spare','+8 Days buffer']]
+  },
+  // 01 — Portable SDR Scanner
+  {
+    plain: `Like a radio receiver that can "listen" to all frequencies simultaneously in an area. The operator can identify who is communicating via radio — walkie-talkies, repeaters, unidentified equipment — around the operation site, without anyone knowing.`,
+    bom: [
+      ['RTL-SDR Blog V4','RTL2832U+R828D, SMA','Rp 700,000'],
+      ['Raspberry Pi 4 4GB','—','Rp 850,000'],
+      ['7" Official Touchscreen','800×480 IPS','Rp 450,000'],
+      ['PowerBank 10000mAh PD','USB-C 18W','Rp 220,000'],
+      ['Telescopic Multi-band Antenna','SMA connector','Rp 115,000'],
+      ['MicroSD 64GB + enclosure','—','Rp 220,000'],
+      ['Misc + shipping','—','Rp 345,000'],
+    ],
+    func: `<b>This unit serves as the eyes of the radio frequency spectrum</b> — capturing and visualizing all RF activity in the operation area in real-time.<br><br>
+<ul>
+<li>Detect active radio communications (walkie-talkies, repeaters, adversary coordination)</li>
+<li>Frequency mapping of the area before an operation — identify all frequencies in use</li>
+<li>Drone detection based on characteristic control frequencies</li>
+<li>Automatic logging of active frequencies with timestamp and RSSI for temporal analysis</li>
+<li>Audio alert when new signals appear — no need for continuous monitoring</li>
+</ul>
+<br><b>Operating mode:</b> Fully PASSIVE — RX only, zero TX. Undetectable.`,
+    stats: [['Coverage','500kHz–1.75GHz'],['Battery','8–12 Hours'],['Mode','Passive Only'],['Output','CSV/JSON Log']]
+  },
+  // 02 — HackRF Wideband
+  {
+    plain: `A more sophisticated version of the frequency-listening device, capable of reaching signal sources from ~2km away. Able to "read" the contents of unencrypted communications, such as legacy radio equipment or devices using open protocols.`,
+    bom: [
+      ['HackRF One (clone)','1MHz–6GHz full-duplex','Rp 2,500,000'],
+      ['Yagi Directional Antenna 14dBi','N-female, weatherproof','Rp 350,000'],
+      ['LNA Low-Noise Amplifier','0.1–4GHz, 20dB, NF &lt;1dB','Rp 500,000'],
+      ['Semi-Hard Field Case IP54','Foam-lined','Rp 250,000'],
+      ['SMA cable + adapter set','Various connectors','Rp 200,000'],
+      ['Misc + spare + shipping','—','Rp 700,000'],
+      ['Laptop (not included)','Separate laptop','—'],
+    ],
+    func: `<b>Target communications deep-analysis unit</b> — an upgraded version of the SDR Scanner with full TX/RX capability and long-range reach via Yagi antenna.<br><br>
+<ul>
+<li>Intercept unencrypted communications from up to ~2km (line-of-sight)</li>
+<li>Modulation analysis: AM, FM, FSK, PSK, OOK, GMSK — decode with Universal Radio Hacker</li>
+<li>Frequency hopping detection — identify frequency-jumping patterns</li>
+<li>Replay attacks on RF protocols not using rolling codes</li>
+<li>Offline session recording for post-operation analysis</li>
+</ul>`,
+    warn: {type:'warn-caution', text:'⚠️ TX capability is only used under official legal authority and clear institutional mandate. Unauthorized TX violates spectrum regulations.'},
+    stats: [['Coverage','1MHz–6GHz'],['Antenna Range','~2km LoS'],['Mode','Full TX/RX']]
+  },
+  // 03 — DF Unit
+  {
+    plain: `Like a compass pointing toward the source of a radio signal. With two units placed at different locations, the system can pinpoint exactly where someone communicating via radio is located — their coordinates appear on the map.`,
+    bom: [
+      ['RTL-SDR Blog V4 ×4','Synchronized array units','Rp 2,800,000'],
+      ['Raspberry Pi 4 4GB','Processing node','Rp 850,000'],
+      ['Omni Antenna Array ×4','Same-length cables critical!','Rp 480,000'],
+      ['GPS Module Neo-8M','UART, 10Hz update rate','Rp 150,000'],
+      ['Portable Display 10" IPS','1280×800','Rp 700,000'],
+      ['Powered USB 3.0 Hub','For 4 simultaneous RTL-SDRs','Rp 180,000'],
+      ['Enclosure + wiring + misc','Cable management critical','Rp 540,000'],
+      ['Spare components + shipping','—','Rp 300,000'],
+    ],
+    func: `<b>This unit determines the physical location of a radio signal source</b> — answering "where is this signal coming from?" accurately on a map.<br><br>
+<ul>
+<li>Calculate signal bearing (direction of arrival) in degrees with ±5–10° accuracy</li>
+<li>With 2+ DF units at different positions: triangulate GPS coordinates of the transmitter</li>
+<li>Track moving transmitters — update bearing in real-time</li>
+<li>Counter-surveillance: hunt active transmitters/bugs placed in sensitive areas</li>
+<li>Visualize bearing and estimated location on offline map (local Leaflet.js)</li>
+</ul>
+<br><b>Note:</b> Antenna cable lengths to each RTL-SDR MUST be identical for optimal accuracy.`,
+    warn: {type:'warn-info', text:'ℹ️ Minimum 2 units required for full triangulation. Field accuracy depends on multipath environment. Field calibration mandatory before operational deployment.'},
+    stats: [['Bearing Accuracy','±5–10°'],['Operating Range','~5km radius'],['Min Triangulation Units','2 Units'],['Build Spare','+2 Weeks calibration']]
+  },
+  // 04 — IMSI Sniffer
+  {
+    plain: `Every active mobile phone automatically "introduces itself" to the nearest BTS tower using a unique ID. This device silently captures that exchange to confirm whether a target phone is present at a location — without touching the target's phone, without transmitting any signal, and without being detected.`,
+    bom: [
+      ['RTL-SDR Blog V4','0.5–1766MHz, TCXO','Rp 700,000'],
+      ['Raspberry Pi Zero 2W','Quad-core 64-bit, 512MB','Rp 450,000'],
+      ['GSM Dipole Antenna 900/1800','Dual-band, SMA','Rp 140,000'],
+      ['MicroSD 64GB Class 10','Log + OS storage','Rp 145,000'],
+      ['PowerBank 10000mAh','USB-C powered','Rp 220,000'],
+      ['Casing + misc + spare','—','Rp 345,000'],
+    ],
+    func: `<b>This unit confirms target presence at a location</b> based on their phone's unique identity (IMSI/TMSI) without transmitting any signal whatsoever.<br><br>
+<ul>
+<li>Detect target presence if IMSI is known in advance</li>
+<li>Count unique mobile devices in an area (crowd intelligence)</li>
+<li>Presence patterns based on schedule (regularity of target at a location)</li>
+<li>Realtime Telegram alert if pre-enrolled IMSI is detected</li>
+</ul>
+<br><b>How it works:</b> gr-gsm demodulates GSM bursts → extracts IMSI/TMSI from unencrypted Location Update Request messages on 2G/GSM networks.<br><br>
+<b>Limitation:</b> Modern LTE/4G uses stronger encryption. Most effective in areas with active 2G coverage.`,
+    warn: {type:'warn-info', text:'ℹ️ Fully PASSIVE — zero TX, zero RF emission. Fundamentally different from an active IMSI Catcher (stingray).'}
+  },
+  // 05 — Sub-GHz Audit
+  {
+    plain: `Gate remotes, garage openers, and alarms work by transmitting a specific code through the air. This cigarette-box-sized device records those codes, then can replay them to open the same access — like duplicating a remote without ever touching the original.`,
+    bom: [
+      ['CC1101 Transceiver Module','SPI interface, 300–928MHz','Rp 90,000'],
+      ['ESP32 DevKit C','240MHz dual-core, WiFi+BT','Rp 80,000'],
+      ['OLED Display 0.96" SSD1306','I2C, 128×64px','Rp 45,000'],
+      ['LiPo 1000mAh + TP4056','3.7V + charging module','Rp 110,000'],
+      ['433MHz helical/telescopic antenna','SMA/IPEX','Rp 55,000'],
+      ['Custom PCB / perfboard','—','Rp 65,000'],
+      ['3D print / acrylic casing','8×5×2.5cm','Rp 135,000'],
+    ],
+    func: `<b>Sub-GHz frequency audit and reconnaissance tool</b> — the band used by hundreds of consumer and industrial devices.<br><br>
+<ul>
+<li><b>Scan:</b> Sweep 300–928MHz, display RSSI per channel on OLED to identify active frequencies</li>
+<li><b>Capture:</b> Record raw OOK/ASK/FSK bursts to flash (100 signals) — capture target remote/alarm signals</li>
+<li><b>Replay:</b> Play back stored signals via physical button to simulate access</li>
+<li><b>BLE Export:</b> Dump to Universal Radio Hacker on laptop for deep protocol analysis</li>
+<li>Physical access security testing: gates, garages, alarm sensors in operation area</li>
+</ul>
+<br><b>Limitation:</b> Rolling codes (KeeLoq, modern vehicles) cannot be replayed. Effective against fixed-code devices.`,
+    stats: [['Coverage','300–928MHz'],['Capacity','100 Signals/Flash'],['Battery','~20 Hours standby'],['Form Factor','Cigarette Box']]
+  },
+  // 06 — Passive WiFi Probe
+  {
+    plain: `Every phone with WiFi active automatically "searches for" networks it has previously connected to, like someone constantly calling out the name of an old friend. This device silently records those calls, enabling confirmation of whether a target's phone is present at a location.`,
+    bom: [
+      ['Raspberry Pi Zero 2W','Quad-core 64-bit, 512MB','Rp 450,000'],
+      ['Alfa AWUS036ACH','AC1200 dual-band, monitor mode','Rp 550,000'],
+      ['PowerBank 10000mAh','Also serves as camouflage casing','Rp 220,000'],
+      ['MicroSD 64GB Class 10','~30 days of logging','Rp 145,000'],
+      ['USB OTG Hub mini + misc','—','Rp 235,000'],
+    ],
+    func: `<b>This unit tracks the presence and profile of WiFi devices in the target area</b> covertly without transmitting any packets.<br><br>
+Every smartphone and laptop automatically broadcasts <i>probe requests</i> containing a list of previously connected WiFi networks — this can be used to:<br><br>
+<ul>
+<li>Confirm target presence at a location based on known MAC address</li>
+<li>Learn which networks the target typically visits (routine, workplace, home)</li>
+<li>Count unique devices at a location over time</li>
+<li>Device fingerprinting based on MAC vendor + SSID history</li>
+</ul>`,
+    warn: {type:'warn-info', text:'ℹ️ Fully PASSIVE — no packets transmitted. Power bank form factor, non-suspicious. 12–18 hours operating endurance.'}
+  },
+  // 07 — Rogue AP
+  {
+    plain: `Like deploying a "fake WiFi hotspot" with exactly the same name as the target's usual WiFi. When the target connects unknowingly, the operator can see everything they access and capture usernames and passwords from systems not using encryption.`,
+    bom: [
+      ['RPi 4 4GB','Main controller','Rp 850,000'],
+      ['Alfa AWUS036ACH ×2','1 for deauth, 1 for AP','Rp 1,100,000'],
+      ['PowerBank 20000mAh','Long field runtime','Rp 320,000'],
+      ['9dBi High Gain Antenna','RP-SMA','Rp 180,000'],
+      ['USB Hub + misc + shipping','—','Rp 350,000'],
+    ],
+    func: `<b>Active MITM platform for operations with legal basis</b> — capturing credentials and analyzing target WiFi traffic.<br><br>
+<ul>
+<li>Deauthenticate target from legitimate AP → target disconnects</li>
+<li>Deploy Rogue AP with identical SSID + BSSID → target reconnects to fake AP</li>
+<li>Redirect all HTTP traffic to a fake captive portal resembling the real page</li>
+<li>Capture username/password from unencrypted protocols</li>
+<li>MITM traffic analysis: session cookies, API calls, plain-text data</li>
+</ul>`,
+    warn: {type:'warn-danger', text:'⚠️ ONLY in operations with official legal basis and signed authorization from agency leadership. Unauthorized use violates cybercrime laws.'}
+  },
+  // 08 — BLE Scanner
+  {
+    plain: `Smartwatches, TWS earbuds, and laptops continuously broadcast Bluetooth signals to their surroundings. This device captures those signals to prove whether a target and their devices are at a specific location, even without the target noticing.`,
+    bom: [
+      ['Raspberry Pi 4','Processing node','Rp 850,000'],
+      ['Ubertooth One (clone)','Open-source BT sniffer','Rp 950,000'],
+      ['Directional 2.4GHz Antenna','RP-SMA','Rp 230,000'],
+      ['PowerBank + casing + misc','—','Rp 370,000'],
+    ],
+    func: `<b>Detect, identify, and track the presence of Bluetooth devices</b> around the target area.<br><br>
+Smartwatches, TWS earbuds, fitness trackers, laptops, tablets, and hundreds of modern BLE devices continuously broadcast advertisements that can be used to:<br><br>
+<ul>
+<li>Track target presence based on recognized BLE devices (smartwatch, earbuds)</li>
+<li>RSSI-based proximity estimation: distance estimate ±1–3 meters</li>
+<li>Profile device network in the target area (IoT ecosystem mapping)</li>
+<li>Detect AirTag / covert BLE trackers that may have been placed on operational vehicles</li>
+</ul>
+<br><b>Note:</b> Modern iOS/Android use BLE MAC randomization → use combination of manufacturer data + service UUID.`
+  },
+  // 09 — Zigbee Sniffer
+  {
+    plain: `Many office buildings, hotels, and premium residences now use smart door and sensor systems (smart locks, wireless alarms). This device can "read" the internal communication of those systems — knowing when doors open, who enters, and whether the system has security vulnerabilities.`,
+    bom: [
+      ['CC2531 USB Dongle','Zigbee 2.4GHz sniffer','Rp 130,000'],
+      ['CC1352P Dual-Band Launchpad','Zigbee + Z-Wave 868/915MHz','Rp 290,000'],
+      ['CC Debugger / SmartRF04EB','For flashing sniffer firmware','Rp 130,000'],
+      ['Cables + misc','—','Rp 50,000'],
+    ],
+    func: `<b>Monitor and analyze smart building communications</b> using Zigbee and Z-Wave protocols — increasingly common in premium buildings.<br><br>
+<ul>
+<li>Capture and decode Zigbee/Z-Wave traffic in real-time via Wireshark</li>
+<li>Command analysis: smart lock lock/unlock, light on/off, sensor triggers, access control</li>
+<li>Identify all devices in the mesh network (network topology mapping)</li>
+<li>Replay commands to devices without encryption (Zigbee without transport key)</li>
+<li>Security assessment of target building before physical entry operation</li>
+</ul>`
+  },
+  // 10 — Universal RF Replay
+  {
+    plain: `Gate remotes and alarms work by transmitting a code through the air every time they're pressed. This cigarette-box-sized device records that code and can replay it at any time — like duplicating a physical remote wirelessly.`,
+    bom: [
+      ['CC1101 Module','SPI, 300–928MHz TX/RX','Rp 90,000'],
+      ['ESP32 DevKit C','240MHz dual-core','Rp 80,000'],
+      ['OLED 0.96" SSD1306','I2C 128×64','Rp 45,000'],
+      ['LiPo 1000mAh + TP4056','3.7V charging','Rp 115,000'],
+      ['Custom PCB + antenna','433MHz helical','Rp 80,000'],
+      ['3D print casing + misc','8×5×2.5cm','Rp 90,000'],
+    ],
+    func: `<b>RF-based physical access audit tool</b> — captures and replays remote signals used by target access systems.<br><br>
+<ul>
+<li>Auto-scan 300–928MHz frequencies to find active signals</li>
+<li>Capture and store up to 100 raw signals (OOK/ASK/FSK) to flash memory</li>
+<li>Replay stored signals via physical button to simulate access</li>
+<li>Effective for: fixed-code gate remotes, garages, legacy alarms, AC remotes, IoT sensors</li>
+<li>BLE export to smartphone for deep analysis in Universal Radio Hacker</li>
+</ul>`
+  },
+  // 11 — IP Camera Scanner
+  {
+    plain: `Hundreds of CCTV cameras in the field still use factory default passwords that have never been changed. This device automatically finds all cameras on the target network, tries default credentials, then takes screenshots from successfully accessed cameras as evidence.`,
+    bom: [
+      ['Raspberry Pi 4 4GB','Main controller','Rp 850,000'],
+      ['USB Gigabit ETH Adapter','—','Rp 110,000'],
+      ['MicroSD 128GB A2','OS + credential DB + results','Rp 210,000'],
+      ['Casing + power supply + misc','—','Rp 230,000'],
+    ],
+    func: `<b>Automated security assessment of IP cameras on the target network</b>, generating access evidence.<br><br>
+<ul>
+<li>Network discovery of all IP cameras in target subnet via Masscan</li>
+<li>Fingerprinting brand, model, and firmware version via Nmap scripts</li>
+<li>Automated credential brute-force using 500+ brand DB (Hikvision, Dahua, Hanwha, Axis, CP-Plus, local brands)</li>
+<li>Exploit known CVEs via Metasploit modules for vulnerable cameras</li>
+<li>Auto-screenshot of successfully accessed camera feeds as evidence</li>
+<li>Generate comprehensive HTML report with all findings</li>
+</ul>`
+  },
+  // 12 — Solar-Gaze
+  {
+    plain: `A solar-powered surveillance camera that can be placed anywhere without power cables — trees, poles, walls — operating autonomously. Equipped with AI that distinguishes humans from wind or animals. Only sends photos to the operator's phone when a human is detected.`,
+    bom: [
+      ['ESP32-CAM Module','OV2640 2MP, WiFi, SD slot','Rp 110,000'],
+      ['PIR Sensor HC-SR501','Adjustable sensitivity + delay','Rp 35,000'],
+      ['Solar Panel 5W 6V','Charging + direct power','Rp 175,000'],
+      ['18650 Battery ×2 + Holder','2× 3400mAh protected','Rp 150,000'],
+      ['TP4056 + Step-up MT3608','Charging + voltage boost','Rp 40,000'],
+      ['Waterproof Casing IP54','Junction box + mounting arm','Rp 160,000'],
+      ['Cables + misc + spare','—','Rp 130,000'],
+    ],
+    func: `<b>Autonomous solar-powered visual surveillance unit</b> — can operate in remote locations without grid power and without personnel presence.<br><br>
+<ul>
+<li>Automatic human presence detection using on-device AI (TFLite MobileNet)</li>
+<li>PIR pre-trigger saves power → ESP32 sleeps when no activity</li>
+<li>Only sends photo via Telegram when human detected with &gt;65% confidence</li>
+<li>Solar charging: 5W panel sufficient for indefinite operation during Indonesian daylight</li>
+<li>Multiple units deployable at various perimeter points simultaneously</li>
+<li>Minimal false positives thanks to double-check: PIR trigger → AI confirmation → send photo</li>
+</ul>`,
+    stats: [['Runtime','Indefinite (solar)'],['AI','TFLite MobileNet'],['Standby Draw','10µA Deep Sleep'],['Alert','Telegram Bot']]
+  },
+  // 13 — Face Recognition
+  {
+    plain: `Like an airport facial recognition system, but a portable version that works completely offline without internet. Just one photo of a person to "register" them — the system will then automatically recognize that person from CCTV footage, video, or a live camera feed.`,
+    bom: [
+      ['Raspberry Pi 4 8GB','8GB required for large models','Rp 1,100,000'],
+      ['USB 1080p / CSI Camera','High quality, low latency','Rp 320,000'],
+      ['SATA 2.5" SSD 512GB','Model + face vector database','Rp 650,000'],
+      ['Portable 7" IPS Display','Live preview + UI','Rp 500,000'],
+      ['Casing + power + cooling + misc','Active cooling RPi','Rp 430,000'],
+    ],
+    func: `<b>Identify and verify target identity based on facial recognition</b>, fully offline without cloud dependency.<br><br>
+<ul>
+<li>Enrollment database from as little as 1 photo (no need for multiple photos)</li>
+<li>Face matching from photos, CCTV screenshots, video recordings, or live camera streams</li>
+<li>Output: confidence score % + registered identity + timestamp + auto-screenshot log</li>
+<li>Bulk enrollment from OSINT photo folders collected previously</li>
+<li>Real-time monitoring at checkpoint positions for personnel verification</li>
+<li>ArcFace accuracy: &gt;99.4% on LFW benchmark. Fully offline — no data leaves the device.</li>
+</ul>`
+  },
+  // 14 — Network Tap
+  {
+    plain: `A tiny device inserted between network cables invisibly — like a "phone tap" but for internet cables. Silently records all passing data, including usernames and passwords from legacy systems not using encryption. Undetectable by any network scanning tool.`,
+    bom: [
+      ['Raspberry Pi Zero W','1GHz ARM, 512MB RAM','Rp 380,000'],
+      ['USB ETH Adapter ×2','RTL8153-based, USB 2.0','Rp 200,000'],
+      ['MicroSD 64GB Class 10','Log storage','Rp 145,000'],
+      ['USB OTG Hub mini','—','Rp 70,000'],
+      ['Mini PowerBank / USB from switch','—','Rp 155,000'],
+      ['~6×4×2cm Casing + misc','Hidden in infrastructure','Rp 150,000'],
+    ],
+    func: `<b>Transparent, undetectable wired network tap</b> — inserted inline in target network infrastructure.<br><br>
+<ul>
+<li>Mirror (copy) all traffic without modifying any packets — invisible to nmap/netdiscover</li>
+<li>Auto-extract credentials from unencrypted protocols: HTTP basic auth, FTP, Telnet, SMTP/POP3</li>
+<li>DNS query logging: complete map of domains visited by each host</li>
+<li>Reconstruct files transferred via FTP/HTTP for content analysis</li>
+<li>Detect and flag suspicious traffic: C2 patterns, DNS tunneling</li>
+<li>Auto-rotate PCAP per hour, dump to MicroSD, session summary log</li>
+</ul>`,
+    warn: {type:'warn-info', text:'ℹ️ Final size ~6×4×2cm. No IP on bridge interface → invisible to all standard network scanners. Can be hidden behind a patch panel or cable bundle.'}
+  },
+  // 15 — Enhanced LAN Tap
+  {
+    plain: `A more powerful version of the LAN tap — capable of recording 30 days of network activity, automatically flagging suspicious data traffic such as communications to unknown servers.`,
+    bom: [
+      ['Raspberry Pi Zero 2W','Quad-core 64-bit, 512MB','Rp 450,000'],
+      ['USB ETH Adapter ×2','—','Rp 200,000'],
+      ['MicroSD 128GB A2','~30 days full capture','Rp 280,000'],
+      ['PowerBank + casing + misc','—','Rp 320,000'],
+    ],
+    func: `<b>More powerful version of the Network Tap</b> with quad-core processor for real-time parsing and 128GB storage for long-term deployment.<br><br>
+<ul>
+<li>All basic Network Tap functions (credential extraction, DNS log, file reconstruction)</li>
+<li>Auto-flag suspicious traffic: C2 communication patterns, DNS tunneling, unusual port usage</li>
+<li>Reconstruct files downloaded by the target (images, documents, executables)</li>
+<li>128GB MicroSD → ~30 days full traffic capture before retrieval is needed</li>
+<li>Faster real-time processing via RPi Zero 2W quad-core vs Zero W single-core</li>
+</ul>`
+  },
+  // 16 — Phone OSINT
+  {
+    plain: `Enter one phone number; within minutes a comprehensive profile emerges: owner's name, photo, all connected social media accounts, even breach history from various platforms. Like having a digital detective that works automatically.`,
+    bom: [
+      ['Mini PC Intel N100 8GB','Passive cooling, compact','Rp 1,500,000'],
+      ['SSD 512GB','OS + software + local breach DB','Rp 650,000'],
+      ['API subscription budget','Truecaller, GetContact, etc.','Rp 200,000'],
+      ['Setup + configuration','—','Rp 150,000'],
+    ],
+    func: `<b>Automated profiling engine from a target phone number</b> — generating a comprehensive profile from dozens of open sources in minutes.<br><br>
+Input one phone number → automatic output:
+<ul>
+<li>Owner name, profile photo, aliases</li>
+<li>All linked social media accounts (IG, FB, TikTok, Telegram, WA)</li>
+<li>Data breach history (HaveIBeenPwned + local DB)</li>
+<li>Alternative numbers previously used</li>
+<li>Carrier registration location + SIM history</li>
+<li>Batch processing: hundreds of numbers simultaneously with PDF export per target</li>
+</ul>`
+  },
+  // 17 — Social Media Mapper
+  {
+    plain: `Many people have many accounts on different platforms under different names and identities. This tool automatically traces 50+ platforms to find all accounts linked to one person, then maps their entire social network in an easy-to-understand graph.`,
+    bom: [
+      ['VPS / Mini PC (software-heavy)','Existing laptop can be used','Rp 500,000'],
+      ['Archive storage + SSD','Archived content','Rp 350,000'],
+      ['Proxy subscription (anti-ban)','For scraping without blocking','Rp 150,000'],
+    ],
+    func: `<b>Map the entire digital footprint and social network of a target</b> across platforms.<br><br>
+<ul>
+<li>Username/email/number → all active accounts on 50+ platforms automatically (Sherlock + Maigret)</li>
+<li>Cross-platform correlation: find anonymous accounts linked to the target</li>
+<li>Export interactive D3.js relationship graph — easy to present to non-technical leadership</li>
+<li>Automated monitoring: alert on new posts, new contacts, or profile changes</li>
+<li>Archive social media content before target deletes it (evidence preservation)</li>
+<li>NLP fingerprint matching: identify anonymous accounts based on writing style</li>
+</ul>`
+  },
+  // 18 — Pathfinder GPS
+  {
+    plain: `A smart vehicle tracker: when the car is parked and stationary, the device "powers down completely" so it emits no signal and cannot be detected by a sweeper. Only when the car starts moving does it activate and transmit the location.`,
+    bom: [
+      ['GPS NEO-6M','UART, ceramic antenna','Rp 110,000'],
+      ['ESP32 DevKit C','Main controller','Rp 80,000'],
+      ['Accelerometer MPU6050','I2C, wake-on-motion interrupt','Rp 40,000'],
+      ['SIM800L GSM/GPRS','SMS/HTTP position upload','Rp 140,000'],
+      ['LiPo 2000mAh + TP4056 + BMS','Protected cell','Rp 170,000'],
+      ['MicroSD 16GB','Local log backup','Rp 75,000'],
+      ['IP65 Casing + N52 Magnet (optional)','Vehicle attachment','Rp 185,000'],
+      ['Misc + spare + shipping','—','Rp 100,000'],
+    ],
+    func: `<b>Long-term asset/vehicle movement tracking</b> with minimal power consumption and bug-sweeper detection avoidance.<br><br>
+<ul>
+<li>Only activates and transmits position when asset moves (MPU6050 wake-on-motion)</li>
+<li>When stationary: Total Deep Sleep → SIM800L OFF → zero RF emission → undetectable by sweeper</li>
+<li>Theoretical standby &gt;160 days; real-world (4 hours/day moving) ~30 days</li>
+<li>Upload position via GPRS SMS/HTTP to server or Telegram bot</li>
+<li>Local MicroSD backup log when no cellular signal</li>
+<li>Quick attachment via N52 magnet to vehicle undercarriage in &lt;5 seconds</li>
+</ul>`,
+    stats: [['Standby (sleep)','&gt;160 Days'],['Real-world','~30 Days'],['RF Emission (stationary)','Zero / Off']]
+  },
+  // 19 — 4G GPS Tracker
+  {
+    plain: `A vehicle tracker that transmits location in real-time via 4G. The operator can see target movement on a map from any phone, with automatic alerts when the vehicle exits a defined area.`,
+    bom: [
+      ['SIM7600 4G LTE Cat-1','Integrated GPS+GNSS','Rp 650,000'],
+      ['GPS NEO-8M External','Higher accuracy','Rp 150,000'],
+      ['ESP32 Controller','MQTT + sleep management','Rp 80,000'],
+      ['LiPo 3000mAh + BMS','Protected, charging module','Rp 180,000'],
+      ['IP67 Casing + N52 Magnet','~8×5×3cm final size','Rp 230,000'],
+      ['Prepaid SIM + misc','—','Rp 160,000'],
+    ],
+    func: `<b>Real-time vehicle surveillance via 4G LTE</b> with long battery life and rapid deployment.<br><br>
+<ul>
+<li>MQTT real-time position reports (interval 10 seconds to 1 hour, configurable)</li>
+<li>Geofence alert: Telegram notification when vehicle enters/exits defined zone</li>
+<li>30-day travel history with polyline visualization on Leaflet.js map</li>
+<li>Automatic sleep mode when vehicle is stationary (10× power saving)</li>
+<li>7–14 days battery life depending on reporting interval</li>
+<li>Rapid deployment &lt;5 seconds via N52 magnet under vehicle</li>
+</ul>`
+  },
+  // 20 — Covert Audio Recorder
+  {
+    plain: `A covert audio recorder disguised as an ordinary USB charger adapter. Only records when sound is present (battery saving) and can operate for 48–72 hours without replacement. Recordings are automatically saved with accurate time stamps.`,
+    bom: [
+      ['ESP32-S3 DevKit','240MHz, onboard WiFi','Rp 110,000'],
+      ['INMP441 MEMS Mic I2S','Digital, SNR 61dB','Rp 55,000'],
+      ['MicroSD slot module + 64GB','WAV/MP3 storage','Rp 155,000'],
+      ['LiPo 500mAh + charger module','3.7V protected','Rp 110,000'],
+      ['Custom casing (USB charger form)','3D print or adaptor mod','Rp 150,000'],
+      ['Misc SMD + mini PCB + spare','—','Rp 70,000'],
+    ],
+    func: `<b>Long-duration covert audio recorder</b> that only actively records when sound is present, significantly saving battery and storage.<br><br>
+<ul>
+<li>Automatic VAD (Voice Activity Detection) — only record if sound is above threshold</li>
+<li>16kHz/24bit audio quality — clear enough for speech intelligibility and transcription</li>
+<li>Accurate timestamp per recording session for timeline analysis</li>
+<li>Continuous mode available for nonstop recording when required</li>
+<li>Silent WiFi upload to server when within operator AP range (optional)</li>
+<li>48–72 hours battery in VAD mode with 500mAh battery</li>
+</ul>`
+  },
+  // 21 — Chameleon USB Implant
+  {
+    plain: `Looks exactly like an ordinary charger cable. But when plugged into a target computer, it can execute commands automatically inside that computer — like invisible fingers working on someone else's computer.`,
+    bom: [
+      ['ESP32-S3 (USB Native OTG)','HID/CDC mode support','Rp 110,000'],
+      ['USB-A + USB-C connector','Mechanical connection','Rp 100,000'],
+      ['SMD components + mini PCB','Passive + decoupling','Rp 150,000'],
+      ['Mini LiPo + charger','Backup power','Rp 130,000'],
+      ['Cable outer sleeve + buffer material','Charger cable camouflage','Rp 200,000'],
+      ['Misc + finishing + shipping','—','Rp 160,000'],
+    ],
+    func: `<b>ESP32-S3 platform with native USB HID capability</b> — can identify itself as an input device (keyboard/mouse) to the host OS.<br><br>
+<b>General functions:</b>
+<ul>
+<li>USB HID emulation without additional drivers on all modern OSes</li>
+<li>Onboard WiFi for communicating operation results to a nearby AP</li>
+<li>Form factor resembling a standard charger cable</li>
+</ul>
+<br><b>Defensive mitigations (for training):</b> USB device whitelisting via Group Policy, endpoint DLP solution, physical USB port lock, Rubber Ducky documentation (Hak5) as open reference.<br><br>
+<i>Detailed payload and operational technical specifications not documented here.</i>`,
+    warn: {type:'warn-danger', text:'⚠️ Only in operations with official legal basis and signed authorization from agency leadership. Item categorized as restricted in this catalog.'}
+  },
+  // 22 — Sonic-Wave Microphone
+  {
+    plain: `A hidden microphone that transmits room audio live (live streaming) to an operator's phone or laptop via WiFi with encryption. Only the operator holding the encryption key can listen.`,
+    bom: [
+      ['ESP32-S3','I2S + WiFi','Rp 110,000'],
+      ['INMP441 I2S Microphone','Digital MEMS, SNR 61dB','Rp 55,000'],
+      ['High-Gain 2.4GHz Antenna','IPEX → SMA adapter','Rp 95,000'],
+      ['LiPo 1000mAh + module','Protected cell','Rp 140,000'],
+      ['Custom PCB + casing','—','Rp 300,000'],
+      ['Misc + finishing + spare','—','Rp 300,000'],
+    ],
+    func: `<b>Real-time audio streaming platform via WiFi based on ESP32-S3 + INMP441</b> with AES-128 pre-shared key encryption.<br><br>
+<b>General functions:</b>
+<ul>
+<li>High-resolution 16kHz I2S audio capture from digital MEMS microphone</li>
+<li>Real-time UDP streaming to operator receiver with AES-128 encryption</li>
+<li>Only the operator holding the encryption key can decrypt the audio</li>
+<li>High-gain antenna for greater WiFi range than standard chip antenna</li>
+</ul>
+<br><b>Open source base:</b> ESP-IDF I2S documentation + lwIP UDP + esp-idf-aes (Espressif open source).<br><br>
+<i>Detailed deployment technical specifications not documented here.</i>`,
+    warn: {type:'warn-danger', text:'⚠️ Only in operations with official legal basis and signed authorization from agency leadership. Item categorized as restricted in this catalog.'}
+  },
+  // 23 — RF Bug Detector
+  {
+    plain: `A hand-swept detector used to search every corner of a room for any unauthorized listening devices or hidden cameras. Detects radio signals from active bugs and camera lenses via infrared reflection.`,
+    bom: [
+      ['RF Detector Module (wideband)','1MHz–6GHz sweep capability','Rp 650,000'],
+      ['ESP32 Controller','Processing + display driver','Rp 80,000'],
+      ['IR Lens Detector Sensor','For non-WiFi hidden cameras','Rp 95,000'],
+      ['OLED 0.96" + Buzzer','Visual + audio feedback','Rp 55,000'],
+      ['LiPo 2000mAh + charging','6–8 hour sweep runtime','Rp 165,000'],
+      ['Handheld casing + misc + spare','Ergonomic grip','Rp 405,000'],
+    ],
+    func: `<b>Detect bugging devices (bugs) and hidden cameras</b> before sensitive meetings begin, using three simultaneous methods.<br><br>
+<b>Method 1 — RF Sweep:</b> Scan 1MHz–6GHz → alert if active transmitter (WiFi bug, GSM, UHF, etc.) detected. RSSI bar graph per frequency.<br><br>
+<b>Method 2 — IR Lens Detection:</b> Shine at suspected object → camera lens reflects IR light characteristically, visible to the sensor.<br><br>
+<b>Method 3 — Anomaly Analysis:</b> Different alerts for RF vs camera. Adjustable sensitivity to avoid false positives from authorized devices (phones, laptops, WiFi routers).<br><br>
+<b>Use cases:</b> Sweep meeting rooms, official vehicles, VIP hotel rooms for important delegations.`
+  },
+  // 24 — NLJD
+  {
+    plain: `The most reliable way to find listening devices — even ones that are completely turned off. This device emits microwaves at walls and furniture; if there's a hidden electronic chip inside (even if inactive), it will be detected from the characteristic signal reflection. Performs the same function as professional tools worth hundreds of millions, at one-tenth the cost.`,
+    bom: [
+      ['HackRF One (clone)','1MHz–6GHz TX/RX','Rp 2,500,000'],
+      ['LNA Low-Noise Amplifier','0.1–4GHz, NF &lt;1dB, 20dB gain','Rp 600,000'],
+      ['Custom Horn Antenna (probe)','Directional, custom fabricated','Rp 500,000'],
+      ['Raspberry Pi 4 4GB','GNU Radio processing','Rp 850,000'],
+      ['Portable Display 10"','IPS + field case','Rp 750,000'],
+      ['Shielded Coax SMA + bandpass filter','Reduce spurious harmonics','Rp 400,000'],
+      ['Field casing + misc + spare','—','Rp 900,000'],
+    ],
+    func: `<b>The only reliable way to detect bugs that are currently off or in sleep mode</b> — impossible with any standard RF sweep.<br><br>
+<b>How it works:</b> Transmit a 920MHz probe signal at the inspected surface. Semiconductors (ICs, transistors) generate harmonics at 1840MHz (2nd) and 2760MHz (3rd). Passive materials don't generate harmonics → harmonics present = hidden electronics present.<br><br>
+<b>Unique advantages:</b>
+<ul>
+<li>Detects devices that are OFF/sleeping — not detectable by standard RF sweeps</li>
+<li>Commercial professional NLJD: Rp 200–500 million. This unit: one-tenth the cost, same core function</li>
+<li>Used for VIP room inspection, emergency SCIF setup, furniture from unknown parties</li>
+</ul>`,
+    warn: {type:'warn-caution', text:'⚠️ Operator training required to distinguish false positives (normal electrical components) from targets. Training in controlled environment before field deployment.'}
+  },
+  // 25 — Spectrum Room Guard
+  {
+    plain: `An automated sensor permanently installed in important rooms that works 24 hours without needing to be monitored. It "memorizes" the room's normal RF frequency conditions, then automatically sends alerts to the operator's phone if any unrecognized new signal appears — a sign that someone has planted a new listening device.`,
+    bom: [
+      ['RTL-SDR Blog V4','Wideband coverage','Rp 700,000'],
+      ['Raspberry Pi Zero 2W','Headless 24/7 operation','Rp 450,000'],
+      ['Indoor Omni Antenna','SMA dipole','Rp 100,000'],
+      ['MicroSD 64GB + USB power supply','Always plugged in','Rp 215,000'],
+      ['Discreet casing + misc + spare','Non-conspicuous in room','Rp 335,000'],
+    ],
+    func: `<b>Automated 24/7 room guardian without requiring an active operator</b> — permanently installed and works autonomously.<br><br>
+<ul>
+<li>First 24 hours: learns normal RF spectrum baseline of the room (FFT averaging + Isolation Forest ML)</li>
+<li>Thereafter: real-time monitoring → Telegram alert if unrecognized new signal appears</li>
+<li>Detection: newly planted WiFi bug, foreign device brought in, drone proximity</li>
+<li>7-day history dashboard + automated daily report (normal/anomaly)</li>
+<li>Ideal for: VIP official workspaces, SCIF meeting rooms, sensitive document vaults</li>
+</ul>`
+  },
+  // 26 — RFID Cloner
+  {
+    plain: `Building and hotel access cards work by broadcasting a unique code when brought near a sensor. This device reads that code and copies it to a blank card — producing a duplicate card that works exactly like the original.`,
+    bom: [
+      ['PN532 NFC Module','I2C/SPI, 13.56MHz full','Rp 150,000'],
+      ['ACR122U USB NFC Reader','Full MIFARE + ISO suite','Rp 700,000'],
+      ['ESP32 Controller + OLED','Standalone mode','Rp 120,000'],
+      ['Blank RFID cards set (50 pcs)','125kHz EM4100 + 13.56MHz MIFARE','Rp 280,000'],
+      ['LiPo + casing + misc + spare','—','Rp 250,000'],
+    ],
+    func: `<b>Read, analyze, and clone RFID/NFC access cards</b> used by target building access control systems.<br><br>
+<ul>
+<li>Read 125kHz card UID: EM4100, HID Prox (very common in the field)</li>
+<li>Read 13.56MHz card data: MIFARE Classic 1K/4K, Ultralight, NTAG21x</li>
+<li>Crack MIFARE Classic sector keys via nested authentication attack (offline)</li>
+<li>Write UID + data to blank card → clone card ready to use</li>
+<li>Card emulation via NFC-enabled Android as alternative to physical card</li>
+<li>MIFARE Classic still dominates access control systems in buildings</li>
+</ul>`
+  },
+  // 27 — RFID Skimmer
+  {
+    plain: `A hidden access card reader that can read a target's card code from a short distance without needing to touch or open the target's wallet. Disguised as a clipboard or regular work bag. Data is silently collected, then sent to the operator's phone via Bluetooth.`,
+    bom: [
+      ['Long-Range RFID Reader','125kHz + 13.56MHz simultaneous','Rp 450,000'],
+      ['ESP32 BLE Controller','BLE GATT server','Rp 80,000'],
+      ['LiPo 5000mAh','Long standby operation','Rp 200,000'],
+      ['Flat Antenna Booster PCB','Custom fabrication','Rp 200,000'],
+      ['Casing (clipboard / bag)','Office stationery camouflage','Rp 270,000'],
+    ],
+    func: `<b>Silently read target access card UID at close range</b> without direct physical contact with the card.<br><br>
+<ul>
+<li>Read 125kHz UID (EM4100, HID Prox) from 5–30cm — card doesn't need to leave wallet</li>
+<li>Read 13.56MHz UID (MIFARE) from 5–15cm</li>
+<li>Auto-log all unique cards detected with deduplication + timestamp</li>
+<li>Totally silent operation: zero LED, zero sound, zero visual indication</li>
+<li>Export log via Bluetooth to operator smartphone without USB cable</li>
+<li>Disguised as a clipboard or regular work bag</li>
+</ul>`
+  },
+  // 28 — Mobile Triage
+  {
+    plain: `A "forensic scanner" for seized phones — quickly extracting copies of all important data (messages, photos, contacts, location history, conversations) in a way that is legally defensible. Every file is given a "digital fingerprint" to prove authenticity in court.`,
+    bom: [
+      ['Mini PC Intel N100 8GB RAM','Passive cooling, compact','Rp 1,600,000'],
+      ['Complete cable set','USB-C, Lightning, Micro-USB, USB-A','Rp 200,000'],
+      ['External SSD 2TB USB 3.1','High-speed acquisition storage','Rp 1,400,000'],
+      ['Portable Display 13.3" IPS','1080p, standalone review','Rp 750,000'],
+      ['USB 3.0 Hub + misc + shipping','—','Rp 250,000'],
+    ],
+    func: `<b>Fast, standardized digital data acquisition from mobile devices obtained in the field</b> — ensuring evidence integrity for legal purposes.<br><br>
+<ul>
+<li>Full Android backup via ADB — contacts, messages, photos, documents, browser history</li>
+<li>WhatsApp, Telegram database extraction (if not fully encrypted)</li>
+<li>Dump call log, SMS, browser history, app data</li>
+<li>Photo metadata: GPS location, timestamp, device model, camera settings</li>
+<li>SHA-256 hash per file for valid chain of custody in court proceedings</li>
+<li>Automatic HTML report: complete list of artifacts found + hashing summary</li>
+</ul>
+<br><b>Note:</b> Android 10+ with FDE limits at-rest access. iOS: very limited without jailbreak.`
+  },
+  // 29 — Disk Imager
+  {
+    plain: `Creates an identical forensic copy of a seized hard drive, flash drive, or memory card — without modifying the original contents by a single bit. This copy can be freely analyzed while the original evidence remains intact and authentic for court proceedings.`,
+    bom: [
+      ['Raspberry Pi 4 / Mini PC','Imaging workstation','Rp 850,000'],
+      ['Powered USB 3.0 Hub','Multiple device support','Rp 150,000'],
+      ['2TB NVMe SSD (PCIe)','Storage for images — volatile price!','Rp 1,500,000'],
+      ['Portable Display + case','—','Rp 650,000'],
+      ['Multi-adapter cables + misc','SATA, NVMe, USB adapters','Rp 450,000'],
+    ],
+    func: `<b>Create identical forensic copies of seized storage media</b> without modifying the original at all — preserving digital evidence integrity.<br><br>
+<ul>
+<li>Disk imaging of HDD/SSD/USB flash/MicroSD without changing 1 bit of source media</li>
+<li>E01/RAW/AFF format — compatible with Autopsy, FTK, Cellebrite</li>
+<li>Automatic MD5 + SHA-256 hash before AND after imaging — integrity verification</li>
+<li>File system preview without full mounting (no atime modification)</li>
+<li>Speed ~150MB/s (SSD-to-NVMe) → 1TB completed in ~2 hours</li>
+<li>Automatic PDF acquisition report: timestamp, operator, hash, size, media info</li>
+</ul>
+<br><b>Standard:</b> E01 + SHA-256 format is the international standard defensible in court.`
+  },
+  // 30 — Network Forensics Box
+  {
+    plain: `Like a "CCTV for internet traffic" on the network being investigated. Records all network activity completely so investigators can replay and find out: who accessed what, when, what files were transferred, and where they went.`,
+    bom: [
+      ['Mini PC Intel N100 8GB','Sufficient for Arkime + ES stack','Rp 1,600,000'],
+      ['2× USB Gigabit ETH Adapter','Capture + management interface','Rp 220,000'],
+      ['1TB NVMe SSD','Packet storage + index','Rp 800,000'],
+      ['Misc + cables + shipping','—','Rp 580,000'],
+    ],
+    func: `<b>Comprehensive network traffic investigation platform</b> with an interface usable by non-technical investigators.<br><br>
+<ul>
+<li>Full packet capture at 100/1000Mbps directly to disk + real-time indexing</li>
+<li>Auto-parse protocols: HTTP, DNS, TLS metadata, SMTP, FTP, SMB, Kerberos, RDP</li>
+<li>Reconstruct transferred files: images, documents, executables, email attachments</li>
+<li>Alert on connections to malicious IPs/domains via local threat intelligence feed</li>
+<li>Interactive Arkime web UI queries — search traffic by IP, protocol, timestamp, keyword</li>
+<li>1TB SSD: ~8–24 hours of full 100Mbps traffic before rotation (expandable)</li>
+</ul>`
+  },
+  // 31 — Drone ISR
+  {
+    plain: `A specially modified surveillance drone — equipped with both a regular camera and a thermal (heat) camera that can see humans in total darkness or behind dense foliage. Unlike commercial DJI, no data is sent to any foreign server.`,
+    bom: [
+      ['Carbon Fiber Quadcopter Frame 5–7"','Durable CF frame','Rp 600,000'],
+      ['Pixhawk 6C Flight Controller','ArduCopter compatible','Rp 2,000,000'],
+      ['4K Camera RunCam / Caddx','30fps video recording','Rp 1,000,000'],
+      ['FLIR Lepton 3.5 Thermal Camera','160×120 thermal imaging','Rp 2,500,000'],
+      ['VTX 1.2GHz + FPV Goggles','~3km video range','Rp 1,200,000'],
+      ['Motor 2306 + ESC 4-in-1 + Props','Efficient set','Rp 700,000'],
+      ['LiPo 6S 5000mAh ×2','2 batteries for 2 sorties','Rp 1,000,000'],
+      ['Misc wiring + spare + shipping','—','Rp 500,000'],
+    ],
+    func: `<b>Fully sovereign aerial ISR platform</b> — no data is sent to foreign cloud servers like DJI.<br><br>
+<ul>
+<li>Live encrypted 4K video to ground station at ~3km range via 1.2GHz link</li>
+<li>Autonomous GPS waypoint flight — operator sets route, drone flies autonomously</li>
+<li>FLIR thermal camera: detect humans in complete darkness, smoke, dense vegetation</li>
+<li>Local 4K storage on microSD for detailed post-flight analysis</li>
+<li>Zero cloud telemetry — fully offline, sovereign, safe from foreign interception</li>
+<li>Customizable payload: add SDR, drop mechanism, or other sensors</li>
+</ul>`,
+    warn: {type:'warn-caution', text:'⚠️ Flight time 20–30 minutes per battery. Flying >150m AGL requires DGCA permit. Only with official clearance from authorized institution.'}
+  },
+  // 32 — Counter-Drone
+  {
+    plain: `An early warning system that detects unknown drones flying near sensitive areas. Works like radar but specifically for drones, by "listening" to drone control signals without emitting any signal itself. Provides warning before an adversary drone can take photographs.`,
+    bom: [
+      ['RTL-SDR Blog V4 ×2','2.4GHz + 5.8GHz monitoring','Rp 1,400,000'],
+      ['Raspberry Pi 4 4GB','ML processing node','Rp 850,000'],
+      ['Dual-Band Directional Antenna','2.4 + 5.8GHz panel','Rp 380,000'],
+      ['GPS Module + Display','Geolocation + UI','Rp 280,000'],
+      ['Field battery + casing + misc','—','Rp 490,000'],
+      ['Misc + spare + shipping','—','Rp 400,000'],
+    ],
+    func: `<b>Early warning system detecting adversary drones based on RF signal analysis</b>, operating 24/7 passively.<br><br>
+<ul>
+<li>Detect commercial drone control signals: DJI OcuSync 2/3, Lightbridge, Autel SkyLink</li>
+<li>Detect FPV racing drones on 2.4GHz and 5.8GHz video links</li>
+<li>ML classifier to identify drone type based on RF signature</li>
+<li>Bearing estimation: estimate direction from which drone is approaching</li>
+<li>Real-time alerts via dashboard + audio + Telegram when drone detected</li>
+<li>Fully PASSIVE — no signal transmitted, undetectable by drones</li>
+</ul>
+<br><b>Limitation:</b> Cannot detect fully autonomous drones without active link (autopilot-only). For full protection, combine with acoustic sensors.`
+  },
+  // 33 — LoRa Mesh
+  {
+    plain: `Encrypted digital walkie-talkies that work without any cellular signal, without WiFi, without internet — even in completely remote areas with no coverage. Messages are encrypted so they cannot be intercepted. The more units used in a team, the greater the communication range.`,
+    bom: [
+      ['ESP32 DevKit C','Main controller','Rp 80,000'],
+      ['LoRa Module SX1276','433MHz or 915MHz','Rp 135,000'],
+      ['OLED Display 1.3" I2C','Message display','Rp 55,000'],
+      ['LiPo 3000mAh + charging','3–7 day operation','Rp 165,000'],
+      ['5dBi Fiberglass Antenna','High gain for long range','Rp 145,000'],
+      ['Field casing + misc','—','Rp 100,000'],
+    ],
+    func: `<b>Encrypted tactical communications network operating without any infrastructure</b> — no SIM, WiFi, or internet required.<br><br>
+<ul>
+<li>AES-256 end-to-end text communications between all team nodes</li>
+<li>5–15km range per hop in open terrain — ideal for coordinating large field teams</li>
+<li>Each node automatically becomes a mesh repeater — more nodes = wider coverage</li>
+<li>Optional GPS position sharing: entire team visible on shared real-time map</li>
+<li>Relay nodes cannot read message contents (E2E encrypted)</li>
+<li>Ideal for: coordination in cellular dead zones, remote area operations, backup comms when phones are compromised</li>
+</ul>`,
+    stats: [['Range/Hop','5–15 km'],['Encryption','AES-256 E2E'],['Infrastructure','Zero (off-grid)'],['Battery','3–7 Days']]
+  },
+  // 34 — Faraday Bag
+  {
+    plain: `A special bag that completely blocks all incoming and outgoing signals — like a signal safe. Any phone or laptop placed inside cannot receive remote wipe commands, cannot be tracked via GPS, and cannot communicate with anyone. Mandatory when transporting seized electronic evidence.`,
+    bom: [
+      ['Cu + Ni Faraday Fabric','Electronics market, per meter','Rp 250,000'],
+      ['Cordura 1000D Outer','Wear-resistant outer layer','Rp 130,000'],
+      ['Conductive Copper Zipper','RF gap sealing at zipper','Rp 100,000'],
+      ['Anti-static Foam Interior','ESD protection','Rp 70,000'],
+      ['Conductive Sealing Strip + stitching','—','Rp 150,000'],
+    ],
+    func: `<b>Total isolation of digital devices from all RF signals</b> — blocking both incoming and outgoing communications.<br><br>
+<ul>
+<li>Block remote wipe commands to seized devices before forensic acquisition</li>
+<li>Isolate active GPS tracking from target devices being transported</li>
+<li>Transport digital evidence devices without risk of remote modification</li>
+<li>Protect field encryption devices from NFC sniffing and RF-based attacks</li>
+<li>Minimum -80dB attenuation across all bands: GSM 900/1800, LTE, 5G Sub-6, WiFi 2.4/5GHz, BT, GPS L1/L2, NFC</li>
+<li>Mandatory QC test per unit using RTL-SDR to verify attenuation</li>
+</ul>`
+  },
+  // 35 — FIDO2 Key
+  {
+    plain: `A USB-sized physical key for securing important institutional accounts against password theft. Without this key plugged in, no one can access the account even if they know the password — even if the password has been leaked or stolen through social engineering. Far cheaper than similar commercial products made abroad.`,
+    bom: [
+      ['ESP32-S3 DevKit (USB Native)','USB HID/CDC mode','Rp 110,000'],
+      ['USB-C Connector + PCB','Mechanical + electrical','Rp 55,000'],
+      ['Capacitive Touch Sensor','Physical button confirm','Rp 15,000'],
+      ['RGB LED Status','Auth visual feedback','Rp 10,000'],
+      ['Epoxy Resin Casing','USB drive size, anti-tamper','Rp 65,000'],
+      ['Custom PCB + solder + testing','—','Rp 65,000'],
+    ],
+    func: `<b>Hardware authentication token that cannot be phished</b> to protect institutional accounts and operational systems.<br><br>
+<ul>
+<li>FIDO2/WebAuthn: account login without relying on SMS OTP (vulnerable to SIM-swap)</li>
+<li>TOTP RFC 6238: 6-digit generator for all standard 2FA services</li>
+<li>Pure USB HID — no wireless → cannot be sniffed or jammed</li>
+<li>Automatic wipe after 10 failed PIN attempts → digital self-destruct if stolen</li>
+<li>Open source code: fully auditable, zero foreign supply chain risk</li>
+<li>Rp 320K vs YubiKey 5 Rp 800K+ — can be mass-produced for all personnel</li>
+</ul>`
+  }
+];
+
+// ── Render detail panel ───────────────────────────────────────────────────────
+function renderDetail(container, idx) {
+  const d = DETAILS[idx];
+  if (!d) { container.innerHTML = '<p style="color:var(--muted);padding:20px">No data.</p>'; return; }
+
+  let html = '';
+
+  // Plain language block
+  html += `<div class="plain-block">
+    <div class="plain-icon">💬</div>
+    <div class="plain-content">
+      <div class="plain-label">Plain Language Summary</div>
+      <div class="plain-text">${d.plain}</div>
+    </div>
+  </div>`;
+
+  html += '<div class="detail-grid">';
+
+  // BOM
+  if (d.bom) {
+    let total = d.bom[d.bom.length-1];
+    let rows = d.bom.slice(0, -1).map(r =>
+      `<tr><td>${r[0]}</td><td>${r[1]}</td><td class="price">${r[2]}</td></tr>`
+    ).join('');
+    html += `<div class="d-block">
+      <div class="d-block-label" style="color:var(--orange)">📦 Bill of Materials (conservative pricing)</div>
+      <div class="bom-scroll"><table class="bom">
+        <thead><tr><th>Component</th><th>Spec</th><th>Est. Price</th></tr></thead>
+        <tbody>${rows}
+        <tr class="total"><td colspan="2">CONSERVATIVE TOTAL</td><td class="price">${total[2]}</td></tr>
+        </tbody>
+      </table></div>
+    </div>`;
+  }
+
+  // Function
+  if (d.func) {
+    html += `<div class="d-block">
+      <div class="d-block-label" style="color:var(--teal)">🎯 Primary Function</div>
+      <div class="d-block-body">${d.func}</div>
+    </div>`;
+  }
+
+  html += '</div>';
+
+  // Architecture / Software
+  if (d.arch) {
+    html += `<div class="d-block full">
+      <div class="d-block-label" style="color:var(--orange)">⚙️ Software Stack &amp; Architecture</div>
+      <div class="d-block-body">${d.arch}</div>
+    </div>`;
+  }
+
+  // Warning
+  if (d.warn) {
+    html += `<div class="warn-strip ${d.warn.type}">${d.warn.text}</div>`;
+  }
+
+  // Stats
+  if (d.stats) {
+    html += '<div class="detail-stats">';
+    d.stats.forEach(s => {
+      html += `<div class="dstat"><span class="dstat-label">${s[0]}</span><span class="dstat-value">${s[1]}</span></div>`;
+    });
+    html += '</div>';
+  }
+
+  container.innerHTML = html;
+}
+
+// ── Toggle ────────────────────────────────────────────────────────────────────
+function toggle(rowEl) {
+  const item = rowEl.closest('.item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.item.open').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) {
+    const container = item.querySelector('.detail-inner');
+    const idx = parseInt(container.dataset.idx || 0);
+    // "Ajax-style" async render
+    if (container.querySelector('.detail-loader')) {
+      setTimeout(() => renderDetail(container, idx), 60);
+    }
+    item.classList.add('open');
+    setTimeout(() => item.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+  }
+}
+
+// ── Filter ────────────────────────────────────────────────────────────────────
+function filterCat(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.item.open').forEach(i => i.classList.remove('open'));
+  const items = document.querySelectorAll('.item');
+  let v = 0;
+  items.forEach(item => {
+    const show = cat === 'all' || item.dataset.cat === cat;
+    item.classList.toggle('hidden', !show);
+    if (show) v++;
+  });
+  // Also handle section dividers
+  document.querySelectorAll('[data-cat-divider]').forEach(div => {
+    if (cat === 'all') { div.style.display = ''; return; }
+    div.style.display = div.dataset.catDivider === cat ? '' : 'none';
+  });
+  document.getElementById('total-badge').textContent = v + ' items';
+}
+</script>
+</body>
+</html>
